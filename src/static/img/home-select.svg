@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>首页</title>
+    <defs>
+        <linearGradient x1="123.300285%" y1="-18.9346297%" x2="-34.8176988%" y2="115.240073%" id="linearGradient-1">
+            <stop stop-color="#4892F8" offset="0%"></stop>
+            <stop stop-color="#3F74F9" offset="44.1412697%"></stop>
+            <stop stop-color="#10C1F3" offset="100%"></stop>
+        </linearGradient>
+        <path d="M19.7211543,2.89780226 L19.7211543,4.56403855 L21.1298081,5.79560451 L21.1298081,2.17335169 C21.1298081,1.73868135 20.8480774,1.44890113 20.4254812,1.44890113 L16.1995196,1.44890113 L17.8194715,2.89780226 L19.7211543,2.89780226 Z M11.9735579,0 L10.5649041,0 L7.10542736e-15,9.41785734 L7.10542736e-15,10.1423079 C7.10542736e-15,10.5769782 0.281730775,10.8667585 0.704326938,10.8667585 L2.81730775,10.8667585 L2.81730775,19.5601652 C2.81730775,19.9948356 3.09903853,20.2846158 3.52163469,20.2846158 L9.15625019,20.2846158 C9.57884635,20.2846158 9.86057713,19.9948356 9.86057713,19.5601652 L9.86057713,13.0401102 L12.6778849,13.0401102 L12.6778849,19.5601652 C12.6778849,19.9948356 12.9596157,20.2846158 13.3822118,20.2846158 L19.0168273,20.2846158 C19.4394235,20.2846158 19.7211543,19.9948356 19.7211543,19.5601652 L19.7211543,10.8667585 L21.8341351,10.8667585 C22.2567312,10.8667585 22.538462,10.5769782 22.538462,10.1423079 L22.538462,9.41785734 L11.9735579,0 Z" id="path-2"></path>
+        <filter x="-44.4%" y="-39.4%" width="188.7%" height="198.6%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0.390462091   0 0 0 0 0.974637681  0 0 0 0.159609921 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="移动端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.首页" transform="translate(-33.000000, -1369.000000)">
+            <g id="操控" transform="translate(0.000000, 1366.000000)">
+                <g id="首页" transform="translate(33.000000, 3.000000)">
+                    <text font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#338DFF">
+                        <tspan x="4" y="38">首页</tspan>
+                    </text>
+                    <g transform="translate(3.000000, 3.000000)">
+                        <rect id="蒙版" x="0" y="0" width="22" height="22"></rect>
+                        <g id="形状" transform="translate(0.000000, 1.000000)">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                            <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

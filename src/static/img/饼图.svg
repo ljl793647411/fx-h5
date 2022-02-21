@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>形状</title>
+    <defs>
+        <path d="M13.238315,21.931093 C15.4074587,21.9341322 17.4885513,21.0733991 19.0218354,19.5390479 L13.238315,13.783318 L13.238315,5.63863076 C10.3061272,5.60567096 7.58245941,7.15108502 6.10676832,9.68508335 C4.63107723,12.2190817 4.63107723,15.3506421 6.10676832,17.8846404 C7.58245941,20.4186388 10.3061272,21.9640528 13.238315,21.931093 L13.238315,21.931093 Z M14.3633173,12.6099395 L23,12.6099395 C22.9920478,7.84765523 19.1256033,3.99319112 14.3633173,4.00000903 L14.3633173,12.6099395 L14.3633173,12.6099395 Z M14.8223758,13.7534689 L20.6295697,19.4844961 C22.1475558,17.9637428 22.9991345,15.9021818 22.9969165,13.7534689 L14.8223758,13.7534689 Z" id="path-1"></path>
+        <filter x="-55.6%" y="-44.6%" width="211.1%" height="211.5%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.213042436   0 0 0 0 0.613759243   0 0 0 0 0.985931839  0 0 0 0.386254371 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="移动端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.首页" transform="translate(-19.000000, -1067.000000)">
+            <g id="编组-11备份-2" transform="translate(8.000000, 1057.000000)">
+                <g id="形状" transform="translate(11.000000, 10.000000)">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#54A7FF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

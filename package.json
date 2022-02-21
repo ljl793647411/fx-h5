@@ -1,5 +1,5 @@
 {
-  "name": "dc-app",
+  "name": "fx-h5",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -58,8 +58,9 @@
     "@vue/shared": "^3.0.0",
     "core-js": "^3.6.5",
     "flyio": "^0.6.2",
+    "moment": "^2.29.1",
     "regenerator-runtime": "^0.12.1",
-    "uview-ui": "^1.8.2",
+    "uview-ui": "^2.0.27",
     "vue": "^2.6.11",
     "vuex": "^3.2.0"
   },
@@ -78,10 +79,10 @@
     "@vue/cli-service": "~4.5.0",
     "babel-plugin-import": "^1.11.0",
     "cross-env": "^7.0.2",
+    "node-sass": "4.13.0",
     "jest": "^25.4.0",
     "mini-types": "*",
     "miniprogram-api-typings": "*",
-    "node-sass": "^5.0.0",
     "postcss-comment": "^2.0.0",
     "sass-loader": "^10.1.0",
     "vue-template-compiler": "^2.6.11"

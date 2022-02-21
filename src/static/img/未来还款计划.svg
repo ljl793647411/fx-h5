@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 19</title>
+    <defs>
+        <path d="M16,4.15470054 L21.5262794,7.34529946 C22.7638837,8.05983064 23.5262794,9.38033872 23.5262794,10.8094011 L23.5262794,17.1905989 C23.5262794,18.6196613 22.7638837,19.9401694 21.5262794,20.6547005 L16,23.8452995 C14.7623957,24.5598306 13.2376043,24.5598306 12,23.8452995 L6.47372056,20.6547005 C5.23611625,19.9401694 4.47372056,18.6196613 4.47372056,17.1905989 L4.47372056,10.8094011 C4.47372056,9.38033872 5.23611625,8.05983064 6.47372056,7.34529946 L12,4.15470054 C13.2376043,3.44016936 14.7623957,3.44016936 16,4.15470054 Z" id="path-1"></path>
+        <filter x="-38.8%" y="-33.6%" width="177.5%" height="185.3%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.213042436   0 0 0 0 0.613759243   0 0 0 0 0.985931839  0 0 0 0.386254371 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="移动端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.首页" transform="translate(-21.000000, -277.000000)">
+            <g id="编组-15" transform="translate(8.000000, 269.000000)">
+                <g id="编组-19" transform="translate(13.000000, 8.000000)">
+                    <g id="多边形">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#54A7FF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <polygon id="￥" fill="#FFFFFF" fill-rule="nonzero" points="14.8600683 19.7474403 14.8600683 17.6996587 17.1262799 17.6996587 17.1262799 16.7986348 14.8600683 16.7986348 14.8600683 15.665529 14.8737201 15.6518771 17.1262799 15.6518771 17.1262799 14.7508532 15.3788396 14.7508532 18 10 16.0614334 10 14 14.109215 11.9385666 10 10 10 12.6211604 14.7508532 10.887372 14.7508532 10.887372 15.6518771 13.1262799 15.6518771 13.1399317 15.665529 13.1399317 16.7986348 10.887372 16.7986348 10.887372 17.6996587 13.1399317 17.6996587 13.1399317 19.7474403"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

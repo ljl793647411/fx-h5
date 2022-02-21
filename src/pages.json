@@ -1,20 +1,56 @@
 {
     "easycom": {
-		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+        "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
 	},
 	"pages": [
-        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/index/index",
+			"path": "pages/home/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "首页"
 			}
-		}
+        },
+		{
+			"path": "pages/credit-loan/index",
+			"style": {
+				"navigationBarTitleText": "授信贷款"
+			}
+        },
+		{
+			"path": "pages/bank/index",
+			"style": {
+				"navigationBarTitleText": "银行"
+			}
+        }
+		
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
+		"navigationBarTitleText": "",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+    },
+	"tabBar": {
+		"color": "#706F6F",
+		"selectedColor": "#000000",
+		"borderStyle": "black",
+		"backgroundColor": "#FFFFFF",
+		"list": [
+			{
+				"pagePath": "pages/home/index",
+				"iconPath": "static/img/home-select.svg",
+				"selectedIconPath": "static/img/home-select.svg",
+				"text": "首页"
+			},{
+				"pagePath": "pages/credit-loan/index",
+				"iconPath": "static/img/sx.svg",
+				"selectedIconPath": "static/img/sx-select.svg",
+				"text": "授信贷款"
+			},{
+				"pagePath": "pages/bank/index",
+				"iconPath": "static/img/bank.svg",
+				"selectedIconPath": "static/img/bank-select.svg",
+				"text": "银行"
+			}
+		]
 	}
 }
