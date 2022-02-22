@@ -37,7 +37,7 @@
 		"list": [
 			{
 				"pagePath": "pages/home/index",
-				"iconPath": "static/img/home-select.svg",
+				"iconPath": "static/img/home.svg",
 				"selectedIconPath": "static/img/home-select.svg",
 				"text": "首页"
 			},{
