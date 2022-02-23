@@ -1,6 +1,6 @@
 <template>
     <view class="">
-        <home-chart img="/static/img/bank-title.svg" title="银行贷款分摊" chartClass="bank-chart" :height="340" />
+        <home-chart img="/static/img/bank-title.svg" title="银行贷款分摊" chartClass="bank-chart" :height="357" />
     </view>
 </template>
 <script>
@@ -24,9 +24,9 @@ export default {
                 data2.push(+(Math.random() * 5).toFixed(2));
             }
            
-            const repaymentCharts = this.echarts.init(document.querySelector('.bank-chart'))
+            const bankChart = this.echarts.init(document.querySelector('.bank-chart'))
             // 绘制图表
-            repaymentCharts.setOption({
+            bankChart.setOption({
                 yAxis: {
                     data: ['财务公司', '中国银行', '建设银行', '北京银行', '兴业银行', '浦发银行', '农业银行', '兴业银行', '浦发银行', '农业银行', ],
                     type: 'category',

@@ -1,9 +1,10 @@
 <template>
-    <view class="">
-        <home-chart img="/static/img/person-title.svg" title="借款人贷款分摊" chartClass="person-chart" :height="340" />
+    <view class="person-chart-container">
+        <home-chart img="/static/img/person-title.svg" title="借款人贷款分摊" chartClass="person-chart" :height="252" />
     </view>
 </template>
 <script>
+import { pieColorList } from '@/common/config'
 export default {
     name: "personChart",
     data() {
@@ -15,32 +16,51 @@ export default {
     },
     methods: {
         init() {
-            const repaymentCharts = this.echarts.init(document.querySelector('.person-chart'))
+            const personChart = this.echarts.init(document.querySelector('.person-chart'))
             // 绘制图表
-            repaymentCharts.setOption({
+            personChart.setOption({
                 legend: {
-                    bottom: '5%',
+                    bottom: 5,
                     left: 'center',
-                    width: 200,
-                },
+                    itemWidth: 18,
+                    itemHeight: 3,
+                }, 
+                color: pieColorList,
                 series: [
                     {
-                        name: 'Access From',
                         type: 'pie',
                         radius: ['30%', '70%'],
+                        left: 30,
+                        top: 0,
+                        bottom: 60,
+                        right: 30,
                         avoidLabelOverlap: false,
+                        hoverAnimation: false,
+                        legendHoverLink : false,
                         label: {
-                            show: false,
-                            position: 'center'
+                            show: true,
+                            position: 'outside',
+                            formatter: '{b} {d}%',
+                            color: 'rgba(67,80,105,0.60);'
+                        },
+                        markLine: {
+                            silent: true
                         },
                         labelLine: {
-                            show: false
+                            show: true
                         },
                         data: [
                             { value: 1048, name: 'Search Engine' },
                             { value: 735, name: 'Direct' },
                             { value: 580, name: 'Email' },
-                            { value: 484, name: 'Union Ads' },
+                            { value: 580, name: 'Email1' },
+                            { value: 580, name: 'Email2' },
+                            { value: 580, name: 'Email3' },
+                            { value: 580, name: 'Email4' },
+                            { value: 580, name: '5' },
+                            { value: 580, name: 'Email6' },
+                            { value: 580, name: 'Email7' },
+                            { value: 484, name: 'Union Ads' }
                         ]
                     }
                 ]
@@ -50,5 +70,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-    
+    .person-chart-container {
+        .person-chart {
+            padding: 14px;
+        }
+    }
 </style>

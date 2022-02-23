@@ -1,6 +1,6 @@
 <template>
     <view class="">
-        <home-chart img="/static/img/re-title.svg" title="未来还款统计" chartClass="repayment-chart" :height="340" />
+        <home-chart img="/static/img/re-title.svg" title="未来还款统计" chartClass="repayment-chart" :height="327" />
     </view>
 </template>
 <script>
