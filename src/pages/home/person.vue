@@ -1,6 +1,6 @@
 <template>
     <view class="person-chart-container">
-        <home-chart img="/static/img/person-title.svg" title="借款人贷款分摊" chartClass="person-chart" :height="252" />
+        <home-chart img="/static/img/person-title.svg" title="借款人贷款分摊" chartClass="person-chart" :height="300" />
     </view>
 </template>
 <script>
@@ -30,17 +30,17 @@ export default {
                     {
                         type: 'pie',
                         radius: ['30%', '70%'],
-                        left: 30,
+                        left: 50,
                         top: 0,
-                        bottom: 60,
-                        right: 30,
+                        bottom: 80,
+                        right: 50,
                         avoidLabelOverlap: false,
                         hoverAnimation: false,
                         legendHoverLink : false,
                         label: {
                             show: true,
                             position: 'outside',
-                            formatter: '{b} {d}%',
+                            formatter: '{b}\n{d}%',
                             color: 'rgba(67,80,105,0.60);'
                         },
                         markLine: {

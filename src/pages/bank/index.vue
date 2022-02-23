@@ -1,11 +1,28 @@
 <template>
-    <div>ada</div>
+    <view class="back-list-container">
+        <search-container>
+            <template #content>
+                <view v-for="a in [1,2,3,4,5,6,78]" :key="a">
+                    <item></item>
+                </view>
+            </template>
+        </search-container>
+    </view>
 </template>
 <script>
+import item from './item.vue'
 
 export default ({
-    setup() {
-        
+    data() {
+        return {
+            
+        }
     },
+    components: {
+        item
+    }
 })
 </script>
+<style lang="scss" scoped>
+   
+</style>
