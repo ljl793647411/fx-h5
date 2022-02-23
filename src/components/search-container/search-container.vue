@@ -1,15 +1,48 @@
 <template>
     <view class="public-component-container">
-        <view class="search-box"></view>
+        <view class="search-box">
+            <view class="search-input">
+                <u-input />
+            </view>
+            <view class="filter-box" @click="showDrawer">
+                <text>筛选</text>
+                <view class="filter-img">
+                    <image src="/static/img/filter.svg" />
+                </view>
+            </view>
+        </view>
         <view class="content-box">
             <slot name="content"></slot>
+        </view>
+        <view>
+            <slot 
+                :show="show"
+                :closeDrawer="closeDrawer"
+                :ok="ok"
+                name="drawer"
+            />
         </view>
     </view>
 </template>
 
 <script>
 export default {
-
+    data() {
+        return {
+            show: false
+        }
+    },
+    methods: {
+        showDrawer() {
+            this.show = true
+        },
+        closeDrawer() {
+            this.show = false
+        },
+        ok() {
+            this.closeDrawer()
+        }
+    }
 }
 </script>
 
@@ -22,7 +55,29 @@ export default {
         .search-box {
             width: 100%;
             height: 50px;
+            padding: 7px 16px;
             background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .search-input {
+                width: 293px;
+                height: 100%;
+            }
+            .filter-box {
+                display: flex;
+                align-items: center;
+                font-size: 14px;
+                color: #666666;
+                font-weight: 400;
+                .filter-img {
+                    width: 12px;
+                    height: 12px;
+                    line-height: 14px;
+                    margin-left: 2px;
+                }
+            }
         }
 
         .content-box {

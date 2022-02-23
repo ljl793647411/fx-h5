@@ -13,6 +13,10 @@ import BackChart from './bank.vue'
 import PersonChart from './person.vue'
 
 export default ({
+    data() {
+        return {
+        }
+    },
     components: {
         InfoContent,
         RepaymentTotal,
