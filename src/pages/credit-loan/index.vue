@@ -12,7 +12,7 @@
                     :close="drawerProps.closeDrawer"
                     :ok="drawerProps.ok"
                 >
-                    <view>出淤泥而不染，濯清涟而不妖出淤泥而不染，濯清涟而不妖</view>
+                    <credit-filter></credit-filter>
                 </popup>
             </template>
         </search-container>
@@ -20,6 +20,7 @@
 </template>
 <script>
 import item from './item.vue'
+import creditFilter from './credit-filter.vue'
 
 export default ({
     data() {
@@ -28,7 +29,8 @@ export default ({
         }
     },
     components: {
-        item
+        item,
+        creditFilter
     }
 })
 </script>

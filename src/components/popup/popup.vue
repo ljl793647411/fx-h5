@@ -26,10 +26,10 @@ export default {
             type: Boolean
         },
         close: {
-            type: Object
+            type: Function
         },
         ok: {
-            type: Object
+            type: Function
         },
     }
 }
@@ -40,6 +40,7 @@ export default {
 
         .popup-content-box {
             width: 320px;
+            padding: 32px 16px 70px;
         }
         .footer {
             width: 320px;

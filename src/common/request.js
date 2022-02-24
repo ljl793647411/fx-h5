@@ -3,7 +3,10 @@ module.exports = (vm) => {
     // 初始化请求配置
     uni.$u.http.setConfig((config) => {
         /* config 为默认全局配置*/
-        config.baseURL = 'https://www.example.com'; /* 根域名 */
+        config.baseURL = 'http://10.101.232.205:5200/api/jtgk/hbct/v1.0/'; /* 根域名 */
+		config.header = {
+			'content-type' : 'application/x-www-form-urlencoded'
+	   	} 
         return config
     })
 	
