@@ -5,7 +5,8 @@ module.exports = (vm) => {
         /* config 为默认全局配置*/
         config.baseURL = 'http://10.101.232.205:5200/api/jtgk/hbct/v1.0/'; /* 根域名 */
 		config.header = {
-			'content-type' : 'application/x-www-form-urlencoded'
+			'content-type' : 'application/json',
+			"Authorization": "Bearer 4fcda35c-7d2e-2478-0062-667e4a88d596"
 	   	} 
         return config
     })

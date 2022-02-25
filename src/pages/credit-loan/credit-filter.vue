@@ -37,13 +37,14 @@
                 <filter-title title="期限范围"></filter-title>
             </template>   
             <template #select>
-                <date-range></date-range>             
+                <time-limit></time-limit>             
             </template>            
         </filter-item>
     </view>
 </template>
 
 <script>
+import timeLimit from './time-limit.vue'
 export default {
     data() {
         return {
@@ -88,6 +89,9 @@ export default {
                 },
             ]
         }
+    },
+    components: {
+        timeLimit
     },
     mounted() {
     }
