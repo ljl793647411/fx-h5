@@ -1,7 +1,22 @@
 const http = uni.$u.http
 
-// post请求，获取菜单
+// 用户权限校验
+export const getUser = (params, config = {}) => http.post('/getDataFromOA/getuser', params, config)
+
+// 总授信信息获取
 export const getCreditInformation = (params, config = {}) => http.post('/getDataFromOA/getCreditInformation', params, config)
 
-// get请求，获取菜单，注意：get请求的配置等，都在第二个参数中，详见前面解释
-export const getMenu = (data) => http.get('/ebapi/public_api/index', data)
+// 未来的还款统计
+export const getRepayment = (params, config = {}) => http.post('/getDataFromOA/getRepayment', params, config)
+
+// 银行贷款分摊
+export const getBankLoan = (params, config = {}) => http.post('/getDataFromOA/getBankLoan', params, config)
+
+// 借款人贷款分摊
+export const getBorrowerLoan = (params, config = {}) => http.post('/getDataFromOA/getBorrowerLoan', params, config)
+
+// 金融机构
+export const getjyjg = (params, config = {}) => http.post('/getDataFromOA/getjyjg', params, config)
+
+// 借款人接口
+export const getLoanuser = (params, config = {}) => http.post('/getDataFromOA/getLoanuser', params, config)
