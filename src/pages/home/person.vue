@@ -5,6 +5,10 @@
 </template>
 <script>
 import { pieColorList } from '@/common/config'
+import { 
+    getBorrowerLoan,
+} from '@/common/http.api.js'
+import { personChartsMapping } from '@/common/utils.js' 
 export default {
     name: "personChart",
     data() {
@@ -12,9 +16,15 @@ export default {
         }
     },
     mounted() {
-        this.init()
+        this.getBorrowerLoanApi()
     },
     methods: {
+        getBorrowerLoanApi() {
+            getBorrowerLoan().then(res => {
+                this.data = personChartsMapping(res?.dataList)
+                this.init()
+            })
+        },
         init() {
             const personChart = this.echarts.init(document.querySelector('.person-chart'))
             // 绘制图表
@@ -24,6 +34,14 @@ export default {
                     left: 'center',
                     itemWidth: 18,
                     itemHeight: 3,
+                    type: 'scroll',
+                    // orient: 'vertical', //图例列表的布局朝向（垂直排列）
+                    formatter: function (name) {
+                        return name.length > 4 ? name.substr(0, 4) + '...' : name
+                    },
+                    tooltip: {
+                        show: true
+                    }
                 }, 
                 color: pieColorList,
                 series: [
@@ -40,7 +58,12 @@ export default {
                         label: {
                             show: true,
                             position: 'outside',
-                            formatter: '{b}\n{d}%',
+                            // formatter: '{b}\n{d}%',
+                            normal: {
+                                formatter({name}) {
+                                    return name.length > 3 ? name.substr(0, 3) + '...' : name
+                                }
+                            },
                             color: 'rgba(67,80,105,0.60);'
                         },
                         markLine: {
@@ -49,19 +72,7 @@ export default {
                         labelLine: {
                             show: true
                         },
-                        data: [
-                            { value: 1048, name: 'Search Engine' },
-                            { value: 735, name: 'Direct' },
-                            { value: 580, name: 'Email' },
-                            { value: 580, name: 'Email1' },
-                            { value: 580, name: 'Email2' },
-                            { value: 580, name: 'Email3' },
-                            { value: 580, name: 'Email4' },
-                            { value: 580, name: '5' },
-                            { value: 580, name: 'Email6' },
-                            { value: 580, name: 'Email7' },
-                            { value: 484, name: 'Union Ads' }
-                        ]
+                        data: this.data.dataList
                     }
                 ]
             });

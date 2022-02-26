@@ -4,35 +4,37 @@
     </view>
 </template>
 <script>
+import { getBankLoan } from '@/common/http.api.js'
+import { bankChartsMapping } from '@/common/utils.js'
 export default {
     name: "bankChart",
     data() {
         return {
+            data: {}
         }
     },
     mounted() {
-        this.init()
+        this.getBankLoanApi()
     },
     methods: {
+        getBankLoanApi() {
+            getBankLoan().then(res => {
+                this.data = bankChartsMapping(res?.dataList)
+                this.init()
+            })
+        },
         init() {
-            let xAxisData = [];
-            let data1 = [];
-            let data2 = [];
-            for (let i = 1; i < 8; i++) {
-            xAxisData.push(i);
-                data1.push(+(Math.random() * 2).toFixed(2));
-                data2.push(+(Math.random() * 5).toFixed(2));
-            }
-           
             const bankChart = this.echarts.init(document.querySelector('.bank-chart'))
             // 绘制图表
             bankChart.setOption({
                 yAxis: {
-                    data: ['财务公司', '中国银行', '建设银行', '北京银行', '兴业银行', '浦发银行', '农业银行', '兴业银行', '浦发银行', '农业银行', ],
                     type: 'category',
+                    data: this.data.category,
                     nameTextStyle: {
                         color: "#5f78a9",
                         align: "center",
+                        overflow: 'ellipsis',
+                        width: 10
                     },
                     axisTick: {
                         alignWithLabel: true,
@@ -40,6 +42,11 @@ export default {
                     },
                     axisLabel: {
                         margin: 10,
+                        overflow: 'ellipsis',
+                        width: 10,
+                        formatter: function (name) {
+                            return name.length > 4 ? name.substr(0, 4) + '...' : name
+                        },
                     },
                     offset: 0,
                     axisLine: { 
@@ -58,7 +65,7 @@ export default {
                     top: 20
                 },
                 xAxis: {
-                    name: '(亿元)',
+                    name: `(${this.data.unit}元)`,
                     type: 'value',
                     nameTextStyle: {
                         color: "#5f78a9",
@@ -79,7 +86,7 @@ export default {
                 series: [
                     {
                         type: 'bar',
-                        data: [1,2,3,4,5,6,7, 8,9,10],
+                        data: this.data.data,
                         barWidth : 9,
                         itemStyle: {
                             borderRadius:9,

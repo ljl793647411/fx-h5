@@ -11,30 +11,13 @@ import InfoContent from './info-content.vue'
 import RepaymentTotal from './repayment-total.vue'
 import BackChart from './bank.vue'
 import PersonChart from './person.vue'
-import { getCreditInformation } from '@/common/http.api.js'
 
 export default ({
-    data() {
-        return {
-        }
-    },
     components: {
         InfoContent,
         RepaymentTotal,
         BackChart,
         PersonChart
-    },
-    mounted() {
-        this.get()
-    },
-    methods: {
-        get() {
-            getCreditInformation().then(res => {
-                console.log('res', res)
-            }).catch(err => {
-                console.log('err', err)
-            })
-        }
     }
 })
 </script>
