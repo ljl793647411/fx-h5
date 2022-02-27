@@ -7,7 +7,8 @@
                 inputAlign="center" 
                 class="date-box"
                 placeholder="开始"
-                :value="startDate"
+                :value="start"
+                @change="startChange"
             ></u--input>
             <view class="line"></view>
             <u--input
@@ -16,7 +17,8 @@
                 inputAlign="center" 
                 class="date-box"
                 placeholder="结束" 
-                :value="endDate"
+                :value="end"
+                @change="endChange"
             ></u--input>
         </view>
     </view>
@@ -24,16 +26,42 @@
 
 <script>
 export default {
+    props: {
+        startPeriod: {
+            type: String
+        },
+        endPeriod: {
+            type: String
+        },
+    },
     data() {
         return {
-            startDate: '',
-            endDate: '',
+            start: this.startPeriod,
+            end: this.endPeriod,
+        }
+    },
+    watch: {
+        startPeriod(value) {
+            if (this.start !== value) {
+                this.start = value
+            }
+        },
+        endPeriod(value) {
+            if (this.end !== value) {
+                this.end = value
+            }
         }
     },
     methods: {
         reset() {
-            this.startDate = ''
-            this.endDate = ''
+            this.start = ''
+            this.end = ''
+        },
+        startChange(value) {
+            this.$emit('startOnChange', value)
+        },
+        endChange(value) {
+            this.$emit('endOnChange', value)
         },
     }
 }

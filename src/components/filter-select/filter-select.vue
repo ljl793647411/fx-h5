@@ -2,7 +2,7 @@
     <view class="public-filter-select-component">
         <view class="item-box" v-for="(item, index) in showList" :key="index">
             <public-tag
-                :text="item.text"
+                :text="item.label"
                 :checkboxClick="checkboxClick"
                 :index="index"
                 :checked="item.checked"

@@ -112,3 +112,53 @@ export const pieColorList = [
         }],
     }
 ]
+
+// 授信贷款筛选状态option
+export const repaymentStatus = [
+    {
+        key: '未签署',
+        label: '未签署',
+        checked: false,
+    },{
+        key: '未提款',
+        label: '未提款',
+        checked: false,
+    },{
+        key: '使用中',
+        label: '使用中',
+        checked: false,
+    },{
+        key: '已过期',
+        label: '已过期',
+        checked: false,
+    },
+]
+
+// 银行页排序option
+export const bankSortOption = [
+    {
+        key: '按总授信降序',
+        label: '按总授信降序',
+        originField: 'totalCreditOrder',
+        checked: false,
+    },{
+        key: '按可用授信降序',
+        label: '按可用授信降序',
+        originField: 'availableCreditOrder',
+        checked: false,
+    }
+]
+
+
+// 银行页范围option
+export const bankRangeOption = [
+    {
+        key: '中资银行',
+        label: '中资银行',
+        checked: false,
+    },{
+        key: '外资银行',
+        label: '外资银行',
+        checked: false,
+    }
+]

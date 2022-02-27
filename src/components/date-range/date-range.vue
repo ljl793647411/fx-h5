@@ -1,9 +1,9 @@
 <template>
     <view class="public-date-range-component">
         <view :class="{'range-box': true, 'checked': selectStatus}" @click="open">
-            <view class="date-box">{{startDate}}</view>
+            <view class="date-box">{{start}}</view>
             <view class="line"></view>
-            <view class="date-box">{{endDate}}</view>
+            <view class="date-box">{{end}}</view>
         </view>
         <u-calendar :show="show" mode="range" @confirm="confirm" @close="close" maxDate="2300-12-31" :monthNum="13"></u-calendar>
     </view>
@@ -13,24 +13,40 @@
 export default {
     data() {
         return {
+            start: this.startDate,
+            end: this.endDate,
             show: false,
-            startDate: '开始时间',
-            endDate: '结束时间',
             selectStatus: false, // 是否选中了时间
+        }
+    },
+    watch: {
+        startDate(value) {
+            if (this.start !== value) {
+                this.start = value
+            }
+        },
+        endDate(value) {
+            if (this.end !== value) {
+                this.end = value
+            }
         }
     },
     methods: {
         reset() {
             this.show = false
-            this.startDate = '开始时间'
-            this.endDate = '结束时间'
+            this.start = ''
+            this.end = ''
             this.selectStatus = false
         },
         confirm(date) {
             this.show = false
             if (date) {
-                this.startDate = date[0]
-                this.endDate = date[date.length - 1]
+                this.start = date[0]
+                this.end = date[date.length - 1]
+                this.$emit('onChange', {
+                    startDate: this.start,
+                    endDate: this.end,
+                })
                 this.selectStatus = true
             }
         },

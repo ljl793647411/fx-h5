@@ -1,18 +1,19 @@
 <template>
     <view class="back-list-container">
-        <search-container>
+        <search-container :showDrawer="showDrawer">
             <template #content>
-                <view v-for="a in [1,2,3,4,5,6,78]" :key="a">
-                    <item></item>
+                <view v-for="(item, index) in dataList" :key="index">
+                    <item :data="item"></item>
                 </view>
             </template>
-            <template #drawer="drawerProps">
+            <template #drawer>
                 <popup 
-                    :show="drawerProps.show"
-                    :close="drawerProps.closeDrawer"
-                    :ok="drawerProps.ok"
+                    :show="show"
+                    @close="closeDrawer"
+                    @ok="ok"
+                    @reset="reset"
                 >
-                    <bank-filter></bank-filter>
+                    <bank-filter ref="filterRef" :filterParam="filterParam"></bank-filter>
                 </popup>
             </template>
         </search-container>
@@ -25,12 +26,50 @@ import bankFilter from './bank-filter.vue'
 export default ({
     data() {
         return {
-
+            show: false,
+            dataList: [{
+                "financialName": "招商银行",
+                "financialEnName": "China Merchants Bank",
+                "totalCredit":2000.12,
+                "totalUsedCredit":1000,
+                "availableCredit":1000.12,
+                "amountUnit": "亿",
+                "currency": "人民币"
+            }],
+            filterParam: {
+                bankAttribute: '',
+                totalCreditOrder: 0,  
+                availableCreditOrder: 0 
+            }
         }
     },
     components: {
         item,
         bankFilter
+    },
+    mounted() {
+        this.getDataList()
+    },
+    methods: {
+        getDataList(query) {
+            
+        },
+        showDrawer() {
+            this.show = true
+        },
+        closeDrawer() {
+            this.show = false
+        },
+        async ok() {
+            await this.getDataList(this.filterParam)
+            this.closeDrawer()
+        },
+        reset() {
+            this.$refs.filterRef.reset()
+            this.filterParam.bankAttribute = ''
+            this.filterParam.totalCreditOrder = 0
+            this.filterParam.availableCreditOrder = 0
+        }
     }
 })
 </script>

@@ -4,12 +4,12 @@
             <view class="header-box">
                 <view class="header-left">
                     <image class="bank-logo" src="/static/img/home.svg" />
-                    <text class="bank-text">招商银行</text>
-                    <text class="bank-code">FG2141241241</text>
+                    <text class="bank-text">{{data.financialName}}</text>
+                    <text class="bank-code">{{data.financialEnName}}</text>
                 </view>
-                <view class="collect-img">
+                <!-- <view class="collect-img">
                     <image src="/static/img/collect.svg" />
-                </view>
+                </view> -->
             </view>
             <view class="content-box">
                 <view class="content-item">
@@ -17,7 +17,7 @@
                         <view class="ring ring-yellow"></view>
                         <text class="item-text">总授信</text>
                     </view>
-                    <text class="item-num">20,000,000</text>
+                    <text class="item-num">{{data.totalCredit}}</text>
                 </view>
                 <view class="line" />
                 <view class="content-item">
@@ -25,7 +25,7 @@
                         <view class="ring ring-green"></view>
                         <text class="item-text">总用信</text>
                     </view>
-                    <text class="item-num">20,000,000</text>
+                    <text class="item-num">{{data.totalUsedCredit}}</text>
                 </view>
                 <view class="line" />
                 <view class="content-item">
@@ -33,7 +33,7 @@
                         <view class="ring ring-blue"></view>
                         <text class="item-text">总可信</text>
                     </view>
-                    <text class="item-num">20,000,000</text>
+                    <text class="item-num">{{data.availableCredit}}</text>
                 </view>
             </view>
         </list-item>
@@ -42,7 +42,12 @@
 
 <script>
 export default {
-
+    props: {
+        data: {
+            type: Object,
+            default: () => ({})
+        }
+    }
 }
 </script>
 

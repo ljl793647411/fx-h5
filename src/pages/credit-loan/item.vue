@@ -3,28 +3,28 @@
         <list-item>
             <view class="header-box">
                 <view class="header-left">
-                    <image class="bank-logo" src="/static/img/home.svg" />
-                    <text class="bank-text">招商银行</text>
-                    <text class="bank-code">FG2141241241</text>
+                    <image class="bank-logo" :src="data.logo" />
+                    <text class="bank-text">{{data.financialName}}</text>
+                    <text class="bank-code">{{data.code}}</text>
                 </view>
-                <view :class="{'header-right': 1, 'header-right-active': 0}">
-                    未提款
+                <view :class="{'header-right': data.dataStatus === '使用中', 'header-right-active': data.dataStatus === '未提款'}">
+                    {{data.dataStatus}}
                 </view>
             </view>
             <view class="content-box">
-                <text class="content-text">借款人: 高科</text>
-                <text class="content-text">贷款类别: 高科</text>
-                <text class="content-text">生效日期: 高科</text>
-                <text class="content-text">到期日期: 高科</text>
-                <text class="content-text">到期天数: 高科</text>
-                <text class="content-text">币种: 高科</text>
-                <text class="content-text">年利率: 高科</text>
+                <text class="content-text">{{`借款人: ${data.borrowerName}`}}</text>
+                <text class="content-text">{{`贷款类别: ${data.loanCategory}`}}</text>
+                <text class="content-text">{{`生效日期: ${data.effectiveDate}`}}</text>
+                <text class="content-text">{{`到期日期: ${data.expireDate}`}}</text>
+                <text class="content-text">{{`到期天数: ${data.dueDays}`}}</text>
+                <text class="content-text">{{`币种: ${data.currency}`}}</text>
+                <text class="content-text">{{`年利率: ${data.annualRate}`}}</text>
             </view>
             <view class="footer-box">
                 <text class="content-text">以提款</text>
                 <text class="content-text">贷款额度</text>
-                <text class="number number-1">1,000,000</text>
-                <text class="number number-2">1,000,000</text>
+                <text class="number number-1">{{data.loanLimit}}</text>
+                <text class="number number-2">{{data.withDrawn}}</text>
             </view>
         </list-item>
     </view>
@@ -32,7 +32,12 @@
 
 <script>
 export default {
-
+    props: {
+        data: {
+            type: Object,
+            default: () => ({})
+        }
+    }
 }
 </script>
 

@@ -11,7 +11,7 @@
             <view class="popup-content-box">
                 <slot></slot>
                 <view class="footer">
-                    <u-button class="rest-btn">重置</u-button>
+                    <u-button class="rest-btn" @click="reset">重置</u-button>
                     <u-button class="ok-btn" @click="ok">确定</u-button>
                 </view>
             </view>
@@ -25,11 +25,16 @@ export default {
         show: {
             type: Boolean
         },
-        close: {
-            type: Function
+    },
+    methods: {
+        ok() {
+            this.$emit('ok')
         },
-        ok: {
-            type: Function
+        close() {
+            this.$emit('close')
+        },
+        reset() {
+            this.$emit('reset')
         },
     }
 }

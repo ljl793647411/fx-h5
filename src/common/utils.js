@@ -45,3 +45,22 @@ export const personChartsMapping = (list = []) => {
     obj.unit = list?.amountUnit || '亿'
     return obj
 }
+/**
+ * @description 筛选数据映射
+ * @param {Array} list 数据源
+ * @param {*} param key/label 字段名
+ */
+export const filterDataMapping = (list = [], {key, label}) => {
+    if (list?.length <= 0) {
+        return []
+    }
+    let arr = []
+    arr = list.map(item => ({
+        ...item,
+       key: item?.[key] || '', 
+       label: item?.[label] || '',
+       checked: false
+    }))
+
+    return arr
+}

@@ -16,9 +16,6 @@
         </view>
         <view>
             <slot 
-                :show="show"
-                :closeDrawer="closeDrawer"
-                :ok="ok"
                 name="drawer"
             />
         </view>
@@ -27,22 +24,11 @@
 
 <script>
 export default {
-    data() {
-        return {
-            show: false
+    props: {
+        showDrawer: {
+            type: Function
         }
     },
-    methods: {
-        showDrawer() {
-            this.show = true
-        },
-        closeDrawer() {
-            this.show = false
-        },
-        ok() {
-            this.closeDrawer()
-        }
-    }
 }
 </script>
 
@@ -62,7 +48,7 @@ export default {
             align-items: center;
 
             .search-input {
-                width: 293px;
+                width: 78%;
                 height: 100%;
             }
             .filter-box {

@@ -2,10 +2,10 @@
     <view>
         <filter-item>
             <template #title>
-                <filter-title :tagsList="multipleList" title="范围"></filter-title>
+                <filter-title :tagsList="bankRangeOptionData" title="范围"></filter-title>
             </template>   
             <template #select>
-                <filter-select :tagsList="multipleList"></filter-select>
+                <filter-select :tagsList="bankRangeOptionData" type="radio"></filter-select>
             </template>            
         </filter-item>
         <filter-item>
@@ -13,59 +13,62 @@
                 <filter-title title="排序"></filter-title>
             </template>   
             <template #select>
-                <filter-select :tagsList="radioList" type="radio"></filter-select>
+                <filter-select :tagsList="bankSortOptionData" type="radio"></filter-select>
             </template>            
         </filter-item>
     </view>
 </template>
 
 <script>
+import { bankSortOption, bankRangeOption } from '@/common/config.js'
+import { filterDataMapping } from '@/common/utils.js'
 export default {
-    data() {
-        return {
-            multipleList: [
-                {
-                    text: '1',
-                    checked: true
-                },
-                {
-                    text: '2',
-                    checked: false
-                },
-                {
-                    text: '3',
-                    checked: false
-                },
-                {
-                    text: '4',
-                    checked: false
-                },
-                {
-                    text: '5',
-                    checked: false
-                },
-                {
-                    text: '6',
-                    checked: false
-                },
-                {
-                    text: '7',
-                    checked: false
-                },
-            ],
-            radioList: [
-                {
-                    text: '按总授信降序',
-                    checked: false
-                },
-                {
-                    text: '按可用授信降序',
-                    checked: false
-                },
-            ]
+    props: {
+        filterParam: {
+            type: Object
         }
     },
-    mounted() {
+    data() {
+        return {
+            bankRangeOptionData: bankRangeOption,
+            bankSortOptionData: bankSortOption
+        }
+    },
+    watch: {
+        bankRangeOptionData: {
+            handler(newV) {
+                const param = newV.find(i => i.checked)?.key || ''
+                this.filterParam.bankAttribute = param
+            },
+            deep: true
+        },
+        bankSortOptionData: {
+            handler(newV) {
+                newV.forEach(item => {
+                    switch (item.originField) {
+                        case 'totalCreditOrder':
+                            this.filterParam.totalCreditOrder = item.checked ? 1 : 0
+                            break;
+                        case 'availableCreditOrder':
+                            this.filterParam.availableCreditOrder = item.checked ? 1 : 0
+                            break;
+                    }
+                })
+            },
+            deep: true
+        },
+    },
+    methods: {
+        reset() {
+            this.bankRangeOptionData = filterDataMapping(this.bankRangeOptionData, {
+                key: 'key',
+                label: 'label'
+            })
+            this.bankSortOptionData = filterDataMapping(this.bankSortOptionData, {
+                key: 'key',
+                label: 'label'
+            })
+        }
     }
 }
 </script>
