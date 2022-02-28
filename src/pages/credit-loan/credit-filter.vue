@@ -97,7 +97,6 @@ export default {
     },
     mounted() {
         this.getFilter()
-        this.getLoanuserFunc()
     },
     methods: {
         getFilter() {
@@ -108,7 +107,7 @@ export default {
                 })
             })
             getLoanuser().then(res => {
-                this.borrower = filterDataMapping(res?.dataList, {
+                this.borrowerData = filterDataMapping(res?.dataList, {
                     key: 'borrowerName',
                     label: 'borrowerName',
                 })

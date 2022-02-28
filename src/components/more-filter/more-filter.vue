@@ -10,14 +10,14 @@
             <!-- 占位 -->
             <view></view>
         </view>
-        <view class="list">
+        <scroll-view class="list" :scroll-y="true">
             <view class="list-item" v-for="(item, index) in tagsList" :key="index" @click="checkboxClick(index)">
-                <text>{{item.text}}</text>
+                <text>{{item.label}}</text>
                 <text class="checked-img" v-if="item.checked">
                     ✓
                 </text>
             </view>
-        </view>
+        </scroll-view>
     </view>
 </template>
 
@@ -69,7 +69,7 @@ export default {
             }
         }
         .list {
-
+            height: calc(100vh - 44px);
             .list-item {
                 font-size: 16px;
                 color: #333333;

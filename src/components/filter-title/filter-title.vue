@@ -41,7 +41,7 @@ export default {
     },
     computed: {
         selectText() {
-            return this.tagsList.filter(i => i.checked).map(v => v.text).join(',')
+            return this.tagsList.filter(i => i.checked).map(v => v.label).join(',')
         }
     },
     methods: {
