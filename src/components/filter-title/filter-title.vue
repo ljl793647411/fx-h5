@@ -6,7 +6,7 @@
                 <text class="select-text">{{selectText}}</text>
                 <text class="more" @click="open">更多</text>
                 <view class="more-img">
-                    <image src="/static/img/s-arrow.svg" />
+                    <image src="../../static/img/s-arrow.svg" />
                 </view>
             </view>
         </view>

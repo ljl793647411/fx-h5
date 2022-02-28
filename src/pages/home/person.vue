@@ -1,6 +1,6 @@
 <template>
     <view class="person-chart-container">
-        <home-chart img="/static/img/person-title.svg" title="借款人贷款分摊" chartClass="person-chart" :height="300" />
+        <home-chart img="../../static/img/person-title.svg" title="借款人贷款分摊" chartClass="person-chart" :height="300" />
     </view>
 </template>
 <script>

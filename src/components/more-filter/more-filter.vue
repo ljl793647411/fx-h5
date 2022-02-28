@@ -2,7 +2,7 @@
     <view class="public-more-filter-component">
         <view class="top">
             <view class="back-img" @click="close">
-                <image src="/static/img/s-arrow-left.svg" />
+                <image src="../../static/img/s-arrow-left.svg" />
             </view>
             <text class="title">
                 {{`${title}选择`}}
