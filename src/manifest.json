@@ -53,9 +53,9 @@
 	"h5": {
         "router" : {
             "mode" : "hash",
-            "base" : "/" 
+            "base" : "/apps/fosun/mobile" 
         },
-        "publicPath" : "/",
+        "publicPath" : "/apps/fosun/mobile",
         "devServer": {
             "port": 8000,
             "proxy": {
