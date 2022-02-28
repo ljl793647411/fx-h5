@@ -32,7 +32,7 @@ module.exports = (vm) => {
 	uni.$u.http.interceptors.response.use((response) => { /* 对响应成功做点什么 可使用async await 做异步操作*/
 		const data = response.data
 		
-		const { resultCode, resultMsg, ...resolveData } = data[0] || {}
+		const { resultCode, resultMsg, ...resolveData } = data || {}
 		// 自定义参数
 		const custom = response.config?.custom
 		if (resultCode !== 'S') { 
