@@ -51,6 +51,11 @@
 		}
 	},
 	"h5": {
+        "router" : {
+            "mode" : "hash",
+            "base" : "/" 
+        },
+        "publicPath" : "/",
         "devServer": {
             "port": 8000,
             "proxy": {
