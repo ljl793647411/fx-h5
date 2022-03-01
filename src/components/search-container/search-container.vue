@@ -7,7 +7,7 @@
             <view class="filter-box" @click="showDrawer">
                 <text>筛选</text>
                 <view class="filter-img">
-                    <image src="../../static/img/filter.svg" />
+                    <image src="/static/img/filter.svg" />
                 </view>
             </view>
         </view>
