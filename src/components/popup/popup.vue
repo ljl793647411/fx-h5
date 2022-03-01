@@ -8,13 +8,15 @@
             closeable
             closeOnClickOverlay
         >
-            <view class="popup-content-box">
-                <slot></slot>
+             <view class="popup-content-box">
+                <scroll-view class="content-box" :scroll-y="true">
+                    <slot></slot>
+                </scroll-view>
                 <view class="footer">
                     <u-button class="rest-btn" @click="reset">重置</u-button>
                     <u-button class="ok-btn" @click="ok">确定</u-button>
                 </view>
-            </view>
+             </view>
         </u-popup>
     </view>
 </template>
@@ -41,11 +43,15 @@ export default {
 </script>
 <style lang="scss" scoped>
     .public-popup-component {
-        position: relative;
 
         .popup-content-box {
             width: 320px;
             padding: 32px 16px 70px;
+            height: 100vh;
+            position: relative;
+        }
+        .content-box {
+            height: 100%;
         }
         .footer {
             width: 320px;

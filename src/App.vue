@@ -1,18 +1,20 @@
 
 <script>
     // import { ddConfig } from '@/common/config.js'
-    import * as dd from 'dingtalk-jsapi';
+    import * as dd from 'dingtalk-jsapi'
+    // import { getUser } from '@/common/http.api.js'
 
 	export default {
         onLaunch: function() {
+		},
+		onShow: function() {
             dd.ready(() => {
                 dd.runtime.permission.requestAuthCode({
                     corpId: dd.corpId,
                     onSuccess: result => {
                         // 调用免登
-                        // login(result.code).then(res => {
+                        // getUser(result.code).then(res => {
                         //     window.xSession = res.data; // 记录下免登的 xSession
-                        //     // initApp();
                         // }).catch(e => {
                         //     uni.$u.toast(e.message || JSON.stringify(e));
                         // });
@@ -26,9 +28,6 @@
             dd.error(error => {
                 uni.$u.toast('dd error----: ' + JSON.stringify(error));
             });
-
-		},
-		onShow: function() {
 		},
 		onHide: function() {
             // this.$u.api.logout()
@@ -44,7 +43,7 @@
         height: 100%; 
     }
 
-    view, text {
+    scroll-view, view, text {
         box-sizing: border-box;
     }
 </style>

@@ -11,9 +11,9 @@
                 </view>
             </view>
         </view>
-        <view class="content-box">
+        <scroll-view class="content-box" :scroll-y="true">
             <slot name="content"></slot>
-        </view>
+        </scroll-view>
         <view>
             <slot 
                 name="drawer"
@@ -35,9 +35,7 @@ export default {
 <style lang="scss" scoped>
     .public-component-container {
         width: 100%;
-        height: auto;
         background: #F1F2F5;
-        min-height: 100vh;
         .search-box {
             width: 100%;
             height: 50px;
@@ -68,7 +66,9 @@ export default {
 
         .content-box {
             width: 100%;
+            height: calc(100vh - 140px);
             padding: 12px 8px;
+            box-sizing: border-box;
         }
     }
 </style>
