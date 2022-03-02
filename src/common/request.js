@@ -8,7 +8,7 @@ module.exports = (vm) => {
         config.baseURL = '/api/jtgk/hbct/v1.0'; /* 根域名 */
 		config.header = {
 			'content-type' : 'application/json',
-			"Authorization": "Bearer 4fcda35c-7d2e-2478-0062-667e4a88d596",
+			"Authorization": "Bearer 0cc79999-833f-6e5e-d681-c37de1ceeeb6",
 			"X-ECC-Current-Tenant": 10000,
 	   	} 
         return config
