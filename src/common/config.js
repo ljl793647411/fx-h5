@@ -170,3 +170,6 @@ export const ddConfig = {
     appSecret: 'xqU6-d1xPRXdeerbV3r5Xk7bInaQdE8pgw6wLUXNrVngFFf0tZm3Kmedzu7FlLBI',
     corpId: ''
 }
+
+// 图片地址请求前缀
+export const imgSrc = 'apps/bf/df/web/bankaccounts/banktypes/'

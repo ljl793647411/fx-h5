@@ -1,22 +1,34 @@
 <template>
     <view class="public-date-range-component">
-        <view :class="{'range-box': true, 'checked': selectStatus}" @click="open">
-            <view class="date-box">{{start}}</view>
+        <view class="range-box">
+            <view :class="{'date-box': true, 'checked': start}" @click="open('start')">{{start || '开始时间'}}</view>
             <view class="line"></view>
-            <view class="date-box">{{end}}</view>
+            <view :class="{'date-box': true, 'checked': end}" @click="open('end')">{{end || '结束时间'}}</view>
         </view>
-        <u-calendar :show="show" mode="range" @confirm="confirm" @close="close" maxDate="2300-12-31" :monthNum="13"></u-calendar>
+        <u-datetime-picker
+            :show="show"
+            mode="date"
+            @close="close"
+            @confirm="confirm" 
+        ></u-datetime-picker>
     </view>
 </template>
 
 <script>
 export default {
+    props: {
+        startDate: {
+            type: String
+        },
+        endDate: {
+            type: String
+        },
+    },
     data() {
         return {
             start: this.startDate,
             end: this.endDate,
             show: false,
-            selectStatus: false, // 是否选中了时间
         }
     },
     watch: {
@@ -36,22 +48,26 @@ export default {
             this.show = false
             this.start = ''
             this.end = ''
-            this.selectStatus = false
         },
         confirm(date) {
             this.show = false
-            if (date) {
-                this.start = date[0]
-                this.end = date[date.length - 1]
-                this.$emit('onChange', {
-                    startDate: this.start,
-                    endDate: this.end,
-                })
-                this.selectStatus = true
+            if (date.value) {
+                switch (this.type) {
+                    case 'start':
+                        this.start = this.moment(date.value).format('YYYY-MM-DD')
+                        this.$emit('startDateChange', this.start)
+                        break;
+                    case 'end':
+                        this.end = this.moment(date.value).format('YYYY-MM-DD')
+                        this.$emit('endDateChange', this.end)
+                        break;
+                
+                }
             }
         },
-        open() {
+        open(type) {
             this.show = true
+            this.type = type
         },
         close() {
             this.show = false
@@ -69,9 +85,6 @@ export default {
             font-size: 13px;
             color: #999999;
             font-weight: 400;
-            &.checked {
-                color: #333333;
-            }
             .date-box {
                 background: #F6F6F6;
                 border-radius: 4px;
@@ -80,6 +93,9 @@ export default {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                &.checked {
+                    color: #333333;
+                }
             }
             .line {
                 width: 8px;

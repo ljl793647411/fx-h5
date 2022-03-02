@@ -31,8 +31,10 @@
             <template #select>
                 <date-range 
                 :startDate="filterParam.startDate" 
-                :endDate="filterParam.endDate" 
-                @onChange="dateChange"></date-range>             
+                :endDate="filterParam.endDate"
+                @startDateChange="startDateChange"
+                @endDateChange="endDateChange"
+                ></date-range>             
             </template>            
         </filter-item>
         <filter-item>
@@ -113,10 +115,13 @@ export default {
                 })
             })
         },
-        // 时间范围change
-        dateChange({startDate, endDate}) {
-            this.filterParam.startDate = startDate
-            this.filterParam.endDate = endDate
+        // 开始时间change
+        startDateChange(date) {
+            this.filterParam.startDate = date
+        },
+        // 结束时间change
+        endDateChange(date) {
+            this.filterParam.endDate = date
         },
         // 期限范围开始
         startPeriodChange(value) {
@@ -136,7 +141,7 @@ export default {
                 key: 'key',
                 label: 'label'
             })
-            this.borrowerData = filterDataMapping(this.financialData, {
+            this.borrowerData = filterDataMapping(this.borrowerData, {
                 key: 'key',
                 label: 'label'
             })

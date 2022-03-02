@@ -60,10 +60,11 @@ export default ({
         creditFilter
     },
     mounted() {
-        this.getDataList()
+        this.getDataList(this.filterParam)
     },
     methods: {
         async getDataList(query) {
+           
         },
         showDrawer() {
             this.show = true

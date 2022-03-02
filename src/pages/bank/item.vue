@@ -3,9 +3,9 @@
         <list-item>
             <view class="header-box">
                 <view class="header-left">
-                    <image class="bank-logo" src="/static/img/home.svg" />
+                    <image class="bank-logo" :src="data.iconName" />
                     <text class="bank-text">{{data.financialName}}</text>
-                    <text class="bank-code">{{data.financialEnName}}</text>
+                    <text class="bank-code ellipsis">{{data.financialEnName}}</text>
                 </view>
                 <!-- <view class="collect-img">
                     <image src="/static/img/collect.svg" />
@@ -54,6 +54,7 @@ export default {
 <style lang="scss" scoped>
     .bank-item-box {
         .header-box {
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -61,6 +62,7 @@ export default {
             .header-left {
                 display: flex;
                 align-items: center;
+                width: 100%;
                 .bank-logo {
                     width: 20px;
                     height: 20px;
@@ -74,6 +76,7 @@ export default {
                     padding-right: 6px;
                 }
                 .bank-code {
+                    width: 50%;
                     font-size: 13px;
                     color: #999999;
                     letter-spacing: 0;
@@ -91,6 +94,7 @@ export default {
             justify-content: space-between;
 
             .content-item {
+                width: 30%;
                 padding: 0 4px;
                 display: flex;
                 justify-content: center;
@@ -113,6 +117,7 @@ export default {
                     color: #435069;
                     letter-spacing: 0;
                     font-weight: 700;
+                    word-break: break-all;
                 }
             }
             .line {

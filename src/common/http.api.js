@@ -20,3 +20,7 @@ export const getjyjg = (params, config = {}) => http.post('/getDataFromOA/getjyj
 
 // 借款人接口
 export const getLoanuser = (params, config = {}) => http.post('/getDataFromOA/getLoanuser', params, config)
+
+// 银行列表
+export const getBankCredit = (params, config = {}) => http.post('/getDataFromOA/getBankCredit', params, config)
+

@@ -3,7 +3,7 @@
         <list-item>
             <view class="header-box">
                 <view class="header-left">
-                    <image class="bank-logo" :src="data.logo" />
+                    <image class="bank-logo" :src="data.iconName" />
                     <text class="bank-text">{{data.financialName}}</text>
                     <text class="bank-code">{{data.code}}</text>
                 </view>

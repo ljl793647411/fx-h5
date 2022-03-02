@@ -8,7 +8,8 @@ module.exports = (vm) => {
         config.baseURL = '/api/jtgk/hbct/v1.0'; /* 根域名 */
 		config.header = {
 			'content-type' : 'application/json',
-			"Authorization": "Bearer 0cc79999-833f-6e5e-d681-c37de1ceeeb6",
+			// "Authorization": "Bearer 0cc79999-833f-6e5e-d681-c37de1ceeeb6",
+			"Authorization": "Bearer  4fcda35c-7d2e-2478-0062-667e4a88d596",
 			"X-ECC-Current-Tenant": 10000,
 	   	} 
         return config
@@ -30,27 +31,9 @@ module.exports = (vm) => {
 	
 	// 响应拦截
 	uni.$u.http.interceptors.response.use((response) => { /* 对响应成功做点什么 可使用async await 做异步操作*/
-		const data = response.data
-		
-		const { resultCode, resultMsg, ...resolveData } = data || {}
-		// 自定义参数
-		const custom = response.config?.custom
-		if (resultCode !== 'S') { 
-			// 如果没有显式定义custom的toast参数为false的话，默认对报错进行toast弹出提示
-			if (custom.toast !== false) {
-				uni.$u.toast(resultMsg)
-			}
-
-			// 如果需要catch返回，则进行reject
-			if (custom?.catch) {
-				return Promise.reject(data)
-			} else {
-				// 否则返回一个pending中的promise，请求不会进入catch中
-				return new Promise(() => { })
-			}
-		}
-		return resolveData || data || {}
+		return response.data || {}
 	}, (response) => { 
+		uni.$u.toast('网络错误')
 		// 对响应错误做点什么 （statusCode !== 200）
 		return Promise.reject(response)
 	})

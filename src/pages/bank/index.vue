@@ -22,6 +22,9 @@
 <script>
 import item from './item.vue'
 import bankFilter from './bank-filter.vue'
+import { getBankCredit } from '@/common/http.api.js'
+import { numberFormat } from '@/common/utils.js'
+import { imgSrc } from '@/common/config.js'
 
 export default ({
     data() {
@@ -48,11 +51,23 @@ export default ({
         bankFilter
     },
     mounted() {
-        this.getDataList()
+        this.getDataList(this.filterParam)
     },
     methods: {
-        getDataList(query) {
-            
+        async getDataList(query) {
+             try {
+                const res = await getBankCredit(query)
+                this.dataList = res?.dataList?.map(item => ({
+                    ...item,
+                    iconName: imgSrc + item.iconName,
+                    totalUsedCredit: numberFormat(item.totalUsedCredit, 0),
+                    availableCredit: numberFormat(item.availableCredit, 0),
+                    totalCredit: numberFormat(item.totalCredit, 0)
+                })) || []
+                console.log('this.dataList', this.dataList)
+            } catch (error) {
+                this.dataList = []
+            }
         },
         showDrawer() {
             this.show = true

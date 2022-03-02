@@ -2,7 +2,6 @@
 <script>
     // import { ddConfig } from '@/common/config.js'
     import * as dd from 'dingtalk-jsapi'
-    // import { getUser } from '@/common/http.api.js'
 
 	export default {
         onLaunch: function() {
@@ -12,12 +11,13 @@
                 dd.runtime.permission.requestAuthCode({
                     corpId: dd.corpId,
                     onSuccess: result => {
+                        const getUser = require('@/common/http.api.js').getUser
                         // 调用免登
-                        // getUser(result.code).then(res => {
-                        //     window.xSession = res.data; // 记录下免登的 xSession
-                        // }).catch(e => {
-                        //     uni.$u.toast(e.message || JSON.stringify(e));
-                        // });
+                        getUser(result.code).then(res => {
+                            window.xSession = res.data; // 记录下免登的 xSession
+                        }).catch(e => {
+                            uni.$u.toast(e.message || JSON.stringify(e));
+                        });
                     },
                     onFail: err => {
                         // window.ddErr = err;
@@ -45,5 +45,11 @@
 
     scroll-view, view, text {
         box-sizing: border-box;
+    }
+    .ellipsis {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        white-space: nowrap;
     }
 </style>
