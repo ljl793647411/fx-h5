@@ -23,6 +23,7 @@
 import { 
     getCreditInformation,
 } from '@/common/http.api.js'
+import { numberFormat } from '@/common/utils.js'
 
 export default ({
     name: "infoContent",
@@ -37,7 +38,12 @@ export default ({
     methods: {
         getCreditInformationApi() {
             getCreditInformation().then(res => {
-                this.data = res
+                this.data = {
+                    totalCredit: numberFormat(res.totalCredit),
+                    totalLoan: numberFormat(res.totalLoan),
+                    availableCredit: numberFormat(res.availableCredit),
+                    maturityLoan: numberFormat(res.maturityLoan)
+                }
             })
         },
     }
