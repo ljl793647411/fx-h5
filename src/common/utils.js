@@ -72,7 +72,7 @@ export const filterDataMapping = (list = [], {key, label}) => {
  * 参数：type,判断格式化后的金额是否需要小数位.
  * 返回：返回格式化后的数值字符串.
  */
-export function numberFormat(s, type) {
+export function numberFormat(s, type = 0) {
     if (/[^0-9\.]/.test(s)) {
         return '0';
     }
