@@ -172,4 +172,4 @@ export const ddConfig = {
 }
 
 // 图片地址请求前缀
-export const imgSrc = 'apps/bf/df/web/bankaccounts/banktypes/'
+export const imgSrc = 'http://10.101.232.205:5200/apps/bf/df/web/bankaccounts/banktypes/'
