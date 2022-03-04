@@ -1,5 +1,10 @@
-const { Object } = require("core-js");
+// 脚本命令启动时将会替换为dev|test
+const env = 'dev'
 
+const API_KEY = {
+	dev: 'Bearer 13b91cb6-2814-473c-dd20-95652baac594', // 开发环境
+	test: 'Bearer d4477364-0248-a21c-3d7d-ce5c921cf96f' // 测试环境
+}
 // 此vm参数为页面的实例，可以通过它引用vuex中的变量
 module.exports = (vm) => {
     // 初始化请求配置
@@ -8,8 +13,7 @@ module.exports = (vm) => {
         config.baseURL = '/api/jtgk/hbct/v1.0'; /* 根域名 */
 		config.header = {
 			'content-type' : 'application/json',
-			// "Authorization": "Bearer 13b91cb6-2814-473c-dd20-95652baac594", // 开发环境
-			"Authorization": "Bearer d4477364-0248-a21c-3d7d-ce5c921cf96f", // 测试环境
+			"Authorization": API_KEY[env],
 			"X-ECC-Current-Tenant": 10000,
 	   	} 
         return config
