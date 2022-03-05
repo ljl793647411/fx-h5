@@ -38,7 +38,6 @@ module.exports = (vm) => {
 	    config.data = config.data || {}
 		// 根据custom参数中配置的添加对应的Authorization
 		const auth = config.custom.auth
-		console.log('auth', auth)
 		if (auth) {
 			config.header.Authorization = API_KEY[env][auth]
 		}
