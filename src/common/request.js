@@ -10,8 +10,8 @@ const API_KEY = {
 	}, // 开发环境
 	test: {
 		1: 'Bearer d4477364-0248-a21c-3d7d-ce5c921cf96f',
-		2: 'Bearer d4477364-0248-a21c-3d7d-ce5c921cf96f',
-		3: 'Bearer d4477364-0248-a21c-3d7d-ce5c921cf96f',
+		2: 'Bearer 53d7f4e1-9056-9fd3-d79a-fab66755fb3d',
+		3: 'Bearer e78a588a-37ce-3025-83cb-738dfb6836c2',
 	}, // 测试环境
 	pro: {
 		1: 'Bearer d4477364-0248-a21c-3d7d-ce5c921cf96f',
