@@ -116,10 +116,6 @@ export const pieColorList = [
 // 授信贷款筛选状态option
 export const repaymentStatus = [
     {
-        key: '未签署',
-        label: '未签署',
-        checked: false,
-    },{
         key: '未提款',
         label: '未提款',
         checked: false,
@@ -127,11 +123,7 @@ export const repaymentStatus = [
         key: '使用中',
         label: '使用中',
         checked: false,
-    },{
-        key: '已过期',
-        label: '已过期',
-        checked: false,
-    },
+    }
 ]
 
 // 银行页排序option

@@ -2,7 +2,7 @@
     <view class="public-component-container">
         <view class="search-box">
             <view class="search-input">
-                <u-input />
+                <!-- <u-input /> -->
             </view>
             <view class="filter-box" @click="showDrawer">
                 <text>筛选</text>

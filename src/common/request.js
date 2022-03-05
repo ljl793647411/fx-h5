@@ -1,9 +1,23 @@
 // 脚本命令启动时将会替换为dev|test
 const env = 'dev'
 
+// 不同的接口不同的环境选择不同的apiKey
 const API_KEY = {
-	dev: 'Bearer 13b91cb6-2814-473c-dd20-95652baac594', // 开发环境
-	test: 'Bearer d4477364-0248-a21c-3d7d-ce5c921cf96f' // 测试环境
+	dev: {
+		1: 'Bearer 13b91cb6-2814-473c-dd20-95652baac594',
+		2: 'Bearer 0cc79999-833f-6e5e-d681-c37de1ceeeb6',
+		3: 'Bearer 4fcda35c-7d2e-2478-0062-667e4a88d596',
+	}, // 开发环境
+	test: {
+		1: 'Bearer d4477364-0248-a21c-3d7d-ce5c921cf96f',
+		2: 'Bearer d4477364-0248-a21c-3d7d-ce5c921cf96f',
+		3: 'Bearer d4477364-0248-a21c-3d7d-ce5c921cf96f',
+	}, // 测试环境
+	pro: {
+		1: 'Bearer d4477364-0248-a21c-3d7d-ce5c921cf96f',
+		2: 'Bearer d4477364-0248-a21c-3d7d-ce5c921cf96f',
+		3: 'Bearer d4477364-0248-a21c-3d7d-ce5c921cf96f',
+	} // 生产环境
 }
 // 此vm参数为页面的实例，可以通过它引用vuex中的变量
 module.exports = (vm) => {
@@ -13,7 +27,6 @@ module.exports = (vm) => {
         config.baseURL = '/api/jtgk/hbct/v1.0'; /* 根域名 */
 		config.header = {
 			'content-type' : 'application/json',
-			"Authorization": API_KEY[env],
 			"X-ECC-Current-Tenant": 10000,
 	   	} 
         return config
@@ -23,10 +36,11 @@ module.exports = (vm) => {
 	uni.$u.http.interceptors.request.use((config) => { // 可使用async await 做异步操作
 	    // 初始化请求拦截器时，会执行此方法，此时data为undefined，赋予默认{}
 	    config.data = config.data || {}
-		// 根据custom参数中配置的是否需要token，添加对应的请求头
-		if(config?.custom?.auth) {
-			// 可以在此通过vm引用vuex中的变量，具体值在vm.$store.state中
-			config.header.token = vm.$store.state.token
+		// 根据custom参数中配置的添加对应的Authorization
+		const auth = config.custom.auth
+		console.log('auth', auth)
+		if (auth) {
+			config.header.Authorization = API_KEY[env][auth]
 		}
 	    return config 
 	}, config => { // 可使用async await 做异步操作

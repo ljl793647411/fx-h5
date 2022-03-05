@@ -55,66 +55,25 @@
 
 <script>
 import timeLimit from './time-limit.vue'
-import { repaymentStatus } from '@/common/config.js'
-import { filterDataMapping } from '@/common/utils.js'
-import { getjyjg, getLoanuser } from '@/common/http.api.js'
 export default {
     props: {
         filterParam: {
             type: Object
-        }
-    },
-    data() {
-        return {
-            repaymentStatusData: repaymentStatus,
-            financialData: [],
-            borrowerData: [],
-        }
-    },
-    watch: {
+        },
         repaymentStatusData: {
-            handler(newV) {
-                const param = newV.filter(i => i.checked).map(v => ({dataStatus: v.label}))
-                this.filterParam.statusList = param
-            },
-            deep: true
+            type: Array
         },
         financialData: {
-            handler(newV) {
-                const param = newV.filter(i => i.checked).map(v => ({financialName: v.label}))
-                this.filterParam.financialList = param
-            },
-            deep: true
+            type: Array
         },
         borrowerData: {
-            handler(newV) {
-                const param = newV.filter(i => i.checked).map(v => ({creditVarieties: v.label}))
-                this.filterParam.borrowerList = param
-            },
-            deep: true
-        }
+            type: Array
+        },
     },
     components: {
         timeLimit
     },
-    mounted() {
-        this.getFilter()
-    },
     methods: {
-        getFilter() {
-            getjyjg().then(res => {
-                this.financialData = filterDataMapping(res?.dataList, {
-                    key: 'bankTypeName',
-                    label: 'bankTypeName',
-                })
-            })
-            getLoanuser().then(res => {
-                this.borrowerData = filterDataMapping(res?.dataList, {
-                    key: 'borrowerName',
-                    label: 'borrowerName',
-                })
-            })
-        },
         // 开始时间change
         startDateChange(date) {
             this.filterParam.startDate = date
@@ -131,21 +90,6 @@ export default {
         endPeriodChange(value) {
             this.filterParam.endPeriod = value
         },
-        reset() {
-            this.$refs.itemLimitRef.reset()
-            this.repaymentStatusData = filterDataMapping(this.repaymentStatusData, {
-                key: 'key',
-                label: 'label'
-            })
-            this.financialData = filterDataMapping(this.financialData, {
-                key: 'key',
-                label: 'label'
-            })
-            this.borrowerData = filterDataMapping(this.borrowerData, {
-                key: 'key',
-                label: 'label'
-            })
-        }
     }
 }
 </script>

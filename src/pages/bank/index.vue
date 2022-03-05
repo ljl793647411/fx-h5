@@ -64,7 +64,6 @@ export default ({
                     availableCredit: numberFormat(item.availableCredit, 0),
                     totalCredit: numberFormat(item.totalCredit, 0)
                 })) || []
-                console.log('this.dataList', this.dataList)
             } catch (error) {
                 this.dataList = []
             }
