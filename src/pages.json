@@ -12,7 +12,7 @@
 		{
 			"path": "pages/credit-loan/index",
 			"style": {
-				"navigationBarTitleText": "授信贷款"
+				"navigationBarTitleText": "贷款查询"
 			}
         },
 		{
@@ -44,7 +44,7 @@
 				"pagePath": "pages/credit-loan/index",
 				"iconPath": "static/img/sx.svg",
 				"selectedIconPath": "static/img/sx-select.svg",
-				"text": "授信贷款"
+				"text": "贷款查询"
 			},{
 				"pagePath": "pages/bank/index",
 				"iconPath": "static/img/bank.svg",

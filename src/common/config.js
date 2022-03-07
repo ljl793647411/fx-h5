@@ -113,7 +113,7 @@ export const pieColorList = [
     }
 ]
 
-// 授信贷款筛选状态option
+// 贷款查询筛选状态option
 export const repaymentStatus = [
     {
         key: '未提款',

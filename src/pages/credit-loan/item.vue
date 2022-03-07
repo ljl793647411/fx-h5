@@ -21,7 +21,7 @@
                 <text class="content-text">{{`年利率: ${data.annualRate}`}}</text>
             </view>
             <view class="footer-box">
-                <text class="content-text">以提款</text>
+                <text class="content-text">已提款</text>
                 <text class="content-text">贷款额度</text>
                 <text class="number number-1">{{data.loanLimit}}</text>
                 <text class="number number-2">{{data.withDrawn}}</text>

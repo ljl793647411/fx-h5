@@ -40,7 +40,7 @@ export const getBankCredit = (params, config = {
     custom: {auth: 2}
 }) => http.post('/getDataFromOA/getBankCredit', params, config)
 
-// 授信贷款列表
+// 贷款查询列表
 export const getLoanWeb = (params, config = {
     custom: {auth: 2}
 }) => http.post('/getDataFromOA/getLoanWeb', params, config)
