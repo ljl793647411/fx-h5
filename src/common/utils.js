@@ -69,5 +69,6 @@ export function numberFormat(s) {
     if (!s) {
         return 0
     }
-    return (s).toLocaleString()
+    let num = ~~s;
+    return (num).toLocaleString()
 }
