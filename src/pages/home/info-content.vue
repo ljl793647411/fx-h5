@@ -39,10 +39,10 @@ export default ({
         getCreditInformationApi() {
             getCreditInformation().then(res => {
                 this.data = {
-                    totalCredit: numberFormat(res.totalCredit, 0),
-                    totalLoan: numberFormat(res.totalLoan, 0),
-                    availableCredit: numberFormat(res.availableCredit, 0),
-                    maturityLoan: numberFormat(res.maturityLoan, 0)
+                    totalCredit: numberFormat(res.totalCredit),
+                    totalLoan: numberFormat(res.totalLoan),
+                    availableCredit: numberFormat(res.availableCredit),
+                    maturityLoan: numberFormat(res.maturityLoan)
                 }
             })
         },

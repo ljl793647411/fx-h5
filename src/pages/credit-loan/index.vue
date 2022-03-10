@@ -104,8 +104,8 @@ export default ({
            this.dataList = res?.dataList?.map(item => ({
                 ...item,
                 iconName: imgSrc + item.iconName,
-                loanLimit: numberFormat(item.loanLimit, 0),
-                availableCredit: numberFormat(item.availableCredit, 0),
+                loanLimit: numberFormat(item.loanLimit),
+                availableCredit: numberFormat(item.availableCredit),
             })) || []
         },
         showDrawer() {

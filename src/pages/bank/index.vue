@@ -60,9 +60,9 @@ export default ({
                 this.dataList = res?.dataList?.map(item => ({
                     ...item,
                     iconName: imgSrc + item.iconName,
-                    totalUsedCredit: numberFormat(item.totalUsedCredit, 0),
-                    availableCredit: numberFormat(item.availableCredit, 0),
-                    totalCredit: numberFormat(item.totalCredit, 0)
+                    totalUsedCredit: numberFormat(item.totalUsedCredit),
+                    availableCredit: numberFormat(item.availableCredit),
+                    totalCredit: numberFormat(item.totalCredit)
                 })) || []
             } catch (error) {
                 this.dataList = []

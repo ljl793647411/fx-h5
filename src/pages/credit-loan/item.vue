@@ -23,8 +23,8 @@
             <view class="footer-box">
                 <text class="content-text">已提款</text>
                 <text class="content-text">贷款额度</text>
-                <text class="number number-1">{{data.loanLimit}}</text>
-                <text class="number number-2">{{data.withDrawn}}</text>
+                <text class="number number-1">{{data.withDrawn}}</text>
+                <text class="number number-2">{{data.loanLimit}}</text>
             </view>
         </list-item>
     </view>
