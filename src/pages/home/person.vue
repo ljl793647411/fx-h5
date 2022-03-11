@@ -60,8 +60,9 @@ export default {
                             position: 'outside',
                             // formatter: '{b}\n{d}%',
                             normal: {
-                                formatter({name}) {
-                                    return name.length > 3 ? name.substr(0, 3) + '...' : name
+                                formatter(params) {
+                                    let label = params.name.length > 3 ? params.name.substr(0, 3) + '...' : params.name
+                                    return `${label}\n${params.percent}%`
                                 }
                             },
                             color: 'rgba(67,80,105,0.60);'

@@ -105,7 +105,7 @@ export default ({
                 ...item,
                 iconName: imgSrc + item.iconName,
                 loanLimit: numberFormat(item.loanLimit),
-                availableCredit: numberFormat(item.availableCredit),
+                withDrawn: numberFormat(item.withDrawn),
             })) || []
         },
         showDrawer() {

@@ -38,7 +38,7 @@ export const personChartsMapping = (list = []) => {
     obj.dataList = list?.map(item => {
         return {
             name: item?.borrowerName || '-',
-            value: item?.totalAmount || 0
+            value: item?.Amount || 0
         }
     })
 
