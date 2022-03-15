@@ -75,6 +75,8 @@ export default ({
                 margin-bottom: 10px;
             }
             .info-content {
+                word-break: break-all;
+                width: 100%;
                 font-size: 30px;
                 color: #FFFFFF;
                 letter-spacing: 0;
