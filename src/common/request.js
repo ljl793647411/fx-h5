@@ -14,9 +14,9 @@ const API_KEY = {
 		3: 'Bearer e78a588a-37ce-3025-83cb-738dfb6836c2',
 	}, // 测试环境
 	pro: {
-		1: 'Bearer d4477364-0248-a21c-3d7d-ce5c921cf96f',
-		2: 'Bearer d4477364-0248-a21c-3d7d-ce5c921cf96f',
-		3: 'Bearer d4477364-0248-a21c-3d7d-ce5c921cf96f',
+		1: 'Bearer f663eb82-25a7-0223-eb3d-04f7add687c1',
+		2: 'Bearer 622d24ac-0a87-5214-78ac-5c8a10b51cfa',
+		3: 'Bearer 860819fd-8088-c54d-a2f6-4b4ab40b17b4',
 	} // 生产环境
 }
 // 此vm参数为页面的实例，可以通过它引用vuex中的变量
@@ -34,6 +34,9 @@ module.exports = (vm) => {
 	
 	// 请求拦截
 	uni.$u.http.interceptors.request.use((config) => { // 可使用async await 做异步操作
+		if (!window._isAuth) {
+			return Promise.reject({code: 401})
+		}
 	    // 初始化请求拦截器时，会执行此方法，此时data为undefined，赋予默认{}
 	    config.data = config.data
 		// 根据custom参数中配置的添加对应的Authorization
@@ -50,7 +53,11 @@ module.exports = (vm) => {
 	uni.$u.http.interceptors.response.use((response) => { /* 对响应成功做点什么 可使用async await 做异步操作*/
 		return response.data || {}
 	}, (response) => { 
-		uni.$u.toast('网络错误')
+		if (response?.code === 401) {
+			uni.$u.toast('抱歉，您没有权限');
+		} else {
+			uni.$u.toast('网络错误')
+		}
 		// 对响应错误做点什么 （statusCode !== 200）
 		return Promise.reject(response)
 	})
