@@ -20,6 +20,9 @@
 			"style": {
 				"navigationBarTitleText": "银行"
 			}
+        },
+		{
+			"path": "pages/login/index"
         }
 		
 	],

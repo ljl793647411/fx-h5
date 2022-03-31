@@ -1,3 +1,6 @@
+import { getUser } from '@/common/http.api.js'
+import * as dd from 'dingtalk-jsapi'
+
 // 银行数据映射
 export const bankChartsMapping = (list = []) => {
     let obj = {
@@ -71,4 +74,35 @@ export function numberFormat(s) {
     }
     let num = +s;
     return (num).toLocaleString()
+}
+
+export function login() {
+    return new Promise((res, rej) => {
+        if (dd.env.platform != 'notInDingTalk') {
+            dd.ready(() => {
+                dd.runtime.permission.requestAuthCode({
+                    corpId: 'ding6f768bca630f8220',
+                    onSuccess: result => {
+                        console.log('result', result)
+                        // 调用免登
+                        getUser({userCode: result.code}).then(() => {
+                            // 授权认证成功
+                            window._isAuth = true
+                            res(true)
+                        }).catch(e => {
+                            rej(e.resultMsg || JSON.stringify(e));
+                        });
+                    },
+                    onFail: err => {
+                        rej(e.resultMsg || JSON.stringify(e));
+                    }
+                });
+            });
+            dd.error(error => {
+                rej('dd error----: ' + JSON.stringify(error));
+            });
+        } else {
+            rej('必须在钉钉访问该应用');
+        }
+    })
 }

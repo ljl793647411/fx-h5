@@ -19,6 +19,8 @@ const API_KEY = {
 		3: 'Bearer 860819fd-8088-c54d-a2f6-4b4ab40b17b4',
 	} // 生产环境
 }
+// 为了保证接口并发导致进入多次401判断逻辑
+let flag = false;
 // 此vm参数为页面的实例，可以通过它引用vuex中的变量
 module.exports = (vm) => {
     // 初始化请求配置
@@ -34,7 +36,8 @@ module.exports = (vm) => {
 	
 	// 请求拦截
 	uni.$u.http.interceptors.request.use((config) => { // 可使用async await 做异步操作
-		if (!window._isAuth) {
+		// 跳过对权限接口的校验
+		if (!window._isAuth && config.url !== '/getDataFromOA/getuser') {
 			return Promise.reject({code: 401})
 		}
 	    // 初始化请求拦截器时，会执行此方法，此时data为undefined，赋予默认{}
@@ -51,10 +54,23 @@ module.exports = (vm) => {
 	
 	// 响应拦截
 	uni.$u.http.interceptors.response.use((response) => { /* 对响应成功做点什么 可使用async await 做异步操作*/
-		return response.data || {}
+		if (response.data.resultCode === 'S') {
+			return response.data || {}
+		} else {
+			return Promise.reject(response.data)
+		}
 	}, (response) => { 
 		if (response?.code === 401) {
-			uni.$u.toast('抱歉，您没有权限');
+			// 只需处理一次401
+			if (!flag) {
+				flag = true;
+				uni.$u.toast('抱歉，您没有权限,将自动跳转登陆页获取权限')
+                setTimeout(() => {
+                    uni.navigateTo({
+						url: '/pages/login/index',
+					})
+                }, 2000);
+			}
 		} else {
 			uni.$u.toast('网络错误')
 		}
