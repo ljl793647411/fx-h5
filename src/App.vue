@@ -8,7 +8,7 @@
 		onShow: function() {
             dd.ready(() => {
                 dd.runtime.permission.requestAuthCode({
-                    corpId: dd.corpId,
+                    corpId: 'ding6f768bca630f8220',
                     onSuccess: result => {
                         const getUser = require('@/common/http.api.js').getUser
                         // 调用免登

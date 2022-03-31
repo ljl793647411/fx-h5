@@ -157,10 +157,7 @@ export const bankRangeOption = [
 
 // 钉钉应用相关字段参数
 export const ddConfig = {
-    agentId: 1467267030,
-    appKey: 'dinggklealjimgbd3mkm',
-    appSecret: 'xqU6-d1xPRXdeerbV3r5Xk7bInaQdE8pgw6wLUXNrVngFFf0tZm3Kmedzu7FlLBI',
-    corpId: ''
+    corpId: 'ding6f768bca630f8220'
 }
 
 // 图片地址请求前缀
