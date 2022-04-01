@@ -26,7 +26,7 @@ module.exports = (vm) => {
     // 初始化请求配置
     uni.$u.http.setConfig((config) => {
         /* config 为默认全局配置*/
-        config.baseURL = '/api/jtgk/hbct/v1.0'; /* 根域名 */
+        config.baseURL = '/api/jtgk'; /* 根域名 */
 		config.header = {
 			'content-type' : 'application/json',
 			"X-ECC-Current-Tenant": 10000,
@@ -37,7 +37,7 @@ module.exports = (vm) => {
 	// 请求拦截
 	uni.$u.http.interceptors.request.use((config) => { // 可使用async await 做异步操作
 		// 跳过对权限接口的校验
-		if (!window._isAuth && config.url !== '/getDataFromOA/getuser') {
+		if (!window._isAuth && config.url !== '/fosun/sso/v1.0/userCheck') {
 			return Promise.reject({code: 401})
 		}
 	    // 初始化请求拦截器时，会执行此方法，此时data为undefined，赋予默认{}

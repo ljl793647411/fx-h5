@@ -83,7 +83,6 @@ export function login() {
                 dd.runtime.permission.requestAuthCode({
                     corpId: 'ding6f768bca630f8220',
                     onSuccess: result => {
-                        console.log('result', result)
                         // 调用免登
                         getUser({userCode: result.code}).then(() => {
                             // 授权认证成功
