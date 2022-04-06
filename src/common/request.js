@@ -64,12 +64,10 @@ module.exports = (vm) => {
 			// 只需处理一次401
 			if (!flag) {
 				flag = true;
-				uni.$u.toast('抱歉，您没有权限,将自动跳转登陆页获取权限')
-                setTimeout(() => {
-                    uni.navigateTo({
-						url: '/pages/login/index',
-					})
-                }, 2000);
+				// uni.$u.toast('抱歉，您没有权限,将自动跳转登陆页获取权限')
+				uni.navigateTo({
+					url: '/pages/login/index',
+				})
 			}
 		} else {
 			uni.$u.toast('网络错误')

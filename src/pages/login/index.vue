@@ -19,11 +19,9 @@ export default {
             login().then(res => {
                 this.loading = 'success';
                 this.loadingText = '登陆成功，2秒后返回首页'
-                setTimeout(() => {
-                    uni.reLaunch({
-                        url: '/pages/home/index',
-                    })
-                }, 2000);
+                uni.reLaunch({
+                    url: '/pages/home/index',
+                })
             }).catch((err) => {
                 this.loading = 'fail';
                 this.loadingText = '登陆失败, 请退出重试,\n' + err
