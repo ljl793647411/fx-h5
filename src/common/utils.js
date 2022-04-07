@@ -81,7 +81,8 @@ export function login() {
         if (dd.env.platform != 'notInDingTalk') {
             dd.ready(() => {
                 dd.runtime.permission.requestAuthCode({
-                    corpId: 'ding6f768bca630f8220',
+                    corpId: 'ding7a05491d2e914134',  // 正式环境
+                    // corpId: 'ding6f768bca630f8220',  // 测试环境
                     onSuccess: result => {
                         // 调用免登
                         getUser({userCode: result.code}).then(() => {

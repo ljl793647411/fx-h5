@@ -155,10 +155,5 @@ export const bankRangeOption = [
     }
 ]
 
-// 钉钉应用相关字段参数
-export const ddConfig = {
-    corpId: 'ding6f768bca630f8220'
-}
-
 // 图片地址请求前缀
 export const imgSrc = 'http://10.101.232.205:5200/apps/bf/df/web/bankaccounts/banktypes/'
