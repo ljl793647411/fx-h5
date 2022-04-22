@@ -67,6 +67,11 @@ export default {
                         color: "#5f78a9",
                         align: "center",
                     },
+                    axisLabel: {
+                        margin: 10,
+                        rotate: 45,
+                        // showMinLabel: true
+                    },
                     splitLine :{ //网格线
                         lineStyle:{
                             type:'dashed' //设置网格线类型 dotted：虚线 solid:实线

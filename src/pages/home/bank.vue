@@ -60,7 +60,7 @@ export default {
                 },
                 grid: {
                     left: 78,
-                    bottom: 40,
+                    bottom: 70,
                     right: 60,
                     top: 20
                 },
@@ -76,6 +76,10 @@ export default {
                             type:'dashed' //设置网格线类型 dotted：虚线 solid:实线
                         },
                         show:true //隐藏或显示
+                    },
+                    axisLabel: {
+                        rotate: 45,
+                        hideOverlap: true,
                     },
                     axisLine: {
                         lineStyle: {

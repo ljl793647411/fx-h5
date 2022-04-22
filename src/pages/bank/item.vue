@@ -4,7 +4,7 @@
             <view class="header-box">
                 <view class="header-left">
                     <image class="bank-logo" :src="data.iconName" />
-                    <text class="bank-text">{{data.financialName}}</text>
+                    <text class="bank-text ellipsis">{{data.financialName}}</text>
                     <text class="bank-code ellipsis">{{data.financialEnName}}</text>
                 </view>
                 <!-- <view class="collect-img">
@@ -90,7 +90,7 @@ export default {
         }
         .content-box {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
 
             .content-item {

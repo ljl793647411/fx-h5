@@ -1,7 +1,8 @@
 
 <script>
 	export default {
-        onLaunch: async function() {
+        onLaunch: function() {
+            window._isAuth = true
 		},
 		onShow: function() {
 		},
