@@ -156,4 +156,4 @@ export const bankRangeOption = [
 ]
 
 // 图片地址请求前缀
-export const imgSrc = 'http://10.101.232.205:5200/apps/bf/df/web/bankaccounts/banktypes/'
+export const imgSrc = 'https://tms.fosun.com/apps/bf/df/web/bankaccounts/banktypes/'

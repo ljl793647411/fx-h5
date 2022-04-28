@@ -71,6 +71,7 @@ export default {
                 }
             }
             .header-right {
+                width: 56px;
                 background: #F0F9F2;
                 border: 1px solid #B5E3BF;
                 border-radius: 6px;
@@ -80,6 +81,7 @@ export default {
                 font-weight: 400;
             }
             .header-right-active {
+                width: 56px;
                 background: #ECF4FF;
                 border: 1px solid #AED1FF;
                 border-radius: 6px;

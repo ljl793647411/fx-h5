@@ -86,7 +86,7 @@ export default {
                 },
                 grid: {
                     bottom: 80,
-                    left: 50,
+                    left: 70,
                     right: 50,
                 },
                 series: [
