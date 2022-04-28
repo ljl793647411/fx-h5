@@ -34,8 +34,7 @@ export default {
                     left: 'center',
                     itemWidth: 18,
                     itemHeight: 3,
-                    type: 'scroll',
-                    // orient: 'vertical', //图例列表的布局朝向（垂直排列）
+                    // type: 'scroll',
                     formatter: function (name) {
                         return name.length > 4 ? name.substr(0, 4) + '...' : name
                     },
