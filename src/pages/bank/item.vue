@@ -63,6 +63,7 @@ export default {
                 display: flex;
                 align-items: center;
                 width: 100%;
+                flex: 1;
                 .bank-logo {
                     width: 20px;
                     height: 20px;

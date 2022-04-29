@@ -4,8 +4,8 @@
             <view class="header-box">
                 <view class="header-left">
                     <image class="bank-logo" :src="data.iconName" />
-                    <text class="bank-text">{{data.financialName}}</text>
-                    <text class="bank-code">{{data.code}}</text>
+                    <text class="bank-text ellipsis">{{data.financialName}}</text>
+                    <text class="bank-code ellipsis">{{data.code}}</text>
                 </view>
                 <view :class="{'header-right': data.dataStatus === '使用中', 'header-right-active': data.dataStatus === '未提款'}">
                     {{data.dataStatus}}
@@ -51,6 +51,7 @@ export default {
             .header-left {
                 display: flex;
                 align-items: center;
+                flex: 1;
                 .bank-logo {
                     width: 20px;
                     height: 20px;
@@ -64,6 +65,7 @@ export default {
                     padding-right: 6px;
                 }
                 .bank-code {
+                    width: 50%;
                     font-size: 13px;
                     color: #999999;
                     letter-spacing: 0;
@@ -71,7 +73,7 @@ export default {
                 }
             }
             .header-right {
-                width: 56px;
+                min-width: 56px;
                 background: #F0F9F2;
                 border: 1px solid #B5E3BF;
                 border-radius: 6px;
@@ -81,7 +83,7 @@ export default {
                 font-weight: 400;
             }
             .header-right-active {
-                width: 56px;
+                min-width: 56px;
                 background: #ECF4FF;
                 border: 1px solid #AED1FF;
                 border-radius: 6px;
