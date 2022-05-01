@@ -43,11 +43,13 @@ export default {
 
 <style lang="scss" scoped>
     .credit-item-box {
+        width: 100%;
         .header-box {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 12px;
+            width: 100%;
             .header-left {
                 display: flex;
                 align-items: center;
@@ -65,7 +67,8 @@ export default {
                     padding-right: 6px;
                 }
                 .bank-code {
-                    width: 50%;
+                    width: 20px;
+                    flex: 1;
                     font-size: 13px;
                     color: #999999;
                     letter-spacing: 0;
@@ -73,21 +76,23 @@ export default {
                 }
             }
             .header-right {
-                min-width: 56px;
+                width: 48px;
+                min-width: 48px;
                 background: #F0F9F2;
                 border: 1px solid #B5E3BF;
                 border-radius: 6px;
-                padding: 2px 8px;
+                padding: 2px 4px;
                 font-size: 12px;
                 color: #6CC77F;
                 font-weight: 400;
             }
             .header-right-active {
-                min-width: 56px;
+                min-width: 48px;
+                width: 48px;
                 background: #ECF4FF;
                 border: 1px solid #AED1FF;
                 border-radius: 6px;
-                padding: 2px 8px;
+                padding: 2px 4px;
                 font-size: 12px;
                 color: #4190FF;
                 font-weight: 400;

@@ -77,7 +77,8 @@ export default {
                     padding-right: 6px;
                 }
                 .bank-code {
-                    width: 50%;
+                    width: 20px;
+                    flex: 1;
                     font-size: 13px;
                     color: #999999;
                     letter-spacing: 0;
