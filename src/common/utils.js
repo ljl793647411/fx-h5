@@ -1,6 +1,14 @@
 import { getUser } from '@/common/http.api.js'
 import * as dd from 'dingtalk-jsapi'
+import { env } from './config'
 
+const corpIdMap = {
+    dev:'ding6f768bca630f8220',  // 测试环境
+    test:'ding6f768bca630f8220',  // 测试环境
+    pro: 'ding7a05491d2e914134',  // 正式环境 
+}
+
+console.log('corpIdMap', corpIdMap[env])
 // 银行数据映射
 export const bankChartsMapping = (list = []) => {
     let obj = {
@@ -81,8 +89,7 @@ export function login() {
         if (dd.env.platform != 'notInDingTalk') {
             dd.ready(() => {
                 dd.runtime.permission.requestAuthCode({
-                    // corpId: 'ding7a05491d2e914134',  // 正式环境
-                    corpId: 'ding6f768bca630f8220',  // 测试环境
+                    corpId: corpIdMap[env],
                     onSuccess: result => {
                         // 调用免登
                         getUser({userCode: result.code}).then(() => {

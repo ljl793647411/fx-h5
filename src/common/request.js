@@ -1,5 +1,5 @@
-// 脚本命令启动时将会替换为dev|test
-const env = 'dev'
+import { env } from './config'
+
 
 // 不同的接口不同的环境选择不同的apiKey
 const API_KEY = {

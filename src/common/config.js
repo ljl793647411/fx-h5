@@ -1,3 +1,6 @@
+// 脚本命令启动时将会替换为dev|test
+export const env = 'dev'
+
 // 饼图调色板
 export const pieColorList = [
     {
@@ -155,5 +158,12 @@ export const bankRangeOption = [
     }
 ]
 
+const imgSrcMap = {
+    dev: 'http://10.101.232.205:5200/apps/bf/df/web/bankaccounts/banktypes/',
+    test: 'http://10.101.232.205:5200/apps/bf/df/web/bankaccounts/banktypes/',
+    pro: 'https://tms.fosun.com/apps/bf/df/web/bankaccounts/banktypes/'
+}
+
+console.log('imgSrcMap', imgSrcMap[env], env)
 // 图片地址请求前缀
-export const imgSrc = 'https://tms.fosun.com/apps/bf/df/web/bankaccounts/banktypes/'
+export const imgSrc = imgSrcMap[env]
