@@ -2,13 +2,15 @@
     <view class="credit-item-box">
         <list-item>
             <view class="header-box">
-                <view class="header-left">
+                <view class="header-top">
                     <image class="bank-logo" :src="data.iconName" />
                     <text class="bank-text ellipsis">{{data.financialName}}</text>
-                    <text class="bank-code ellipsis">{{data.code}}</text>
                 </view>
-                <view :class="{'header-right': data.dataStatus === '使用中', 'header-right-active': data.dataStatus === '未提款'}">
-                    {{data.dataStatus}}
+                <view class="header-bottom">
+                    <text class="bank-code ellipsis">{{data.code}}</text>
+                    <text :class="{'header-right': data.dataStatus === '使用中', 'header-right-active': data.dataStatus === '未提款'}">
+                        {{data.dataStatus}}
+                    </text>
                 </view>
             </view>
             <view class="content-box">
@@ -45,15 +47,11 @@ export default {
     .credit-item-box {
         width: 100%;
         .header-box {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            width: 100%;
-            .header-left {
-                width: 80%;
+            .header-top {
                 display: flex;
                 align-items: center;
+                margin-bottom: 4px;
+                width: 100%;
                 .bank-logo {
                     width: 20px;
                     height: 20px;
@@ -66,6 +64,12 @@ export default {
                     font-weight: 400;
                     padding-right: 6px;
                 }
+            }
+            .header-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 12px;
                 .bank-code {
                     width: 20px;
                     flex: 1;
@@ -74,30 +78,28 @@ export default {
                     letter-spacing: 0;
                     font-weight: 400;
                 }
-            }
-            .header-right {
-                max-width: 20%;
-                width: 44px;
-                min-width: 44px;
-                background: #F0F9F2;
-                border: 1px solid #B5E3BF;
-                border-radius: 6px;
-                padding: 2px 2px;
-                font-size: 12px;
-                color: #6CC77F;
-                font-weight: 400;
-            }
-            .header-right-active {
-                max-width: 20%;
-                min-width: 44px;
-                width: 44px;
-                background: #ECF4FF;
-                border: 1px solid #AED1FF;
-                border-radius: 6px;
-                padding: 2px 2px;
-                font-size: 12px;
-                color: #4190FF;
-                font-weight: 400;
+                .header-right {
+                    width: 44px;
+                    min-width: 44px;
+                    background: #F0F9F2;
+                    border: 1px solid #B5E3BF;
+                    border-radius: 6px;
+                    padding: 2px 2px;
+                    font-size: 12px;
+                    color: #6CC77F;
+                    font-weight: 400;
+                }
+                .header-right-active {
+                    min-width: 44px;
+                    width: 44px;
+                    background: #ECF4FF;
+                    border: 1px solid #AED1FF;
+                    border-radius: 6px;
+                    padding: 2px 2px;
+                    font-size: 12px;
+                    color: #4190FF;
+                    font-weight: 400;
+                }
             }
         }
         .content-box {
