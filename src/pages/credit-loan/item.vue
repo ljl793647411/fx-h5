@@ -51,9 +51,9 @@ export default {
             margin-bottom: 12px;
             width: 100%;
             .header-left {
+                width: 80%;
                 display: flex;
                 align-items: center;
-                flex: 1;
                 .bank-logo {
                     width: 20px;
                     height: 20px;
@@ -76,23 +76,25 @@ export default {
                 }
             }
             .header-right {
-                width: 48px;
-                min-width: 48px;
+                max-width: 20%;
+                width: 44px;
+                min-width: 44px;
                 background: #F0F9F2;
                 border: 1px solid #B5E3BF;
                 border-radius: 6px;
-                padding: 2px 4px;
+                padding: 2px 2px;
                 font-size: 12px;
                 color: #6CC77F;
                 font-weight: 400;
             }
             .header-right-active {
-                min-width: 48px;
-                width: 48px;
+                max-width: 20%;
+                min-width: 44px;
+                width: 44px;
                 background: #ECF4FF;
                 border: 1px solid #AED1FF;
                 border-radius: 6px;
-                padding: 2px 4px;
+                padding: 2px 2px;
                 font-size: 12px;
                 color: #4190FF;
                 font-weight: 400;
