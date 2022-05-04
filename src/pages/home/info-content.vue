@@ -5,7 +5,7 @@
             <view class="info-content">{{data.totalCredit}}</view>
         </view>
         <view class="info-item">
-            <view class="info-title">总贷款</view>
+            <view class="info-title">总用信</view>
             <view class="info-content">{{data.totalLoan}}</view>
         </view>
         <view class="line" />
