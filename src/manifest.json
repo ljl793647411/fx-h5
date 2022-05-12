@@ -60,7 +60,7 @@
             "port": 8000,
             "proxy": {
                 "/api": {
-                    "target": "http://10.101.232.205:5200",
+                    "target": "http://10.101.240.119:5200",
                     "changeOrigin": true,
                     "secure": false
                 }

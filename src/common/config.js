@@ -1,5 +1,5 @@
 // 脚本命令启动时将会替换为dev|test
-export const env = 'dev'
+export const env = 'test'
 
 // 饼图调色板
 export const pieColorList = [

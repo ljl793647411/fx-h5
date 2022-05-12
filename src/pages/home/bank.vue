@@ -19,7 +19,12 @@ export default {
     methods: {
         getBankLoanApi() {
             getBankLoan().then(res => {
-                this.data = bankChartsMapping(res?.dataList)
+                let list = []
+                // 最多展示10条
+                if (res?.dataList?.length > 10) {
+                    list = res?.dataList.slice(0, 10)
+                }
+                this.data = bankChartsMapping(list)
                 this.init()
             })
         },

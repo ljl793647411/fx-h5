@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev:h5": "cross-env NODE_ENV=dev UNI_PLATFORM=h5 node set-api-key.js && vue-cli-service uni-serve",
+    "dev:test": "cross-env NODE_ENV=test UNI_PLATFORM=h5 node set-api-key.js && vue-cli-service uni-serve",
+    "dev:pro": "cross-env NODE_ENV=pro UNI_PLATFORM=h5 node set-api-key.js && vue-cli-service uni-serve",
     "build:dev": "cross-env NODE_ENV=dev UNI_PLATFORM=h5 node set-api-key.js && vue-cli-service uni-build",
     "build:test": "cross-env NODE_ENV=test UNI_PLATFORM=h5 node set-api-key.js && vue-cli-service uni-build",
     "build:pro": "cross-env NODE_ENV=pro UNI_PLATFORM=h5 node set-api-key.js && vue-cli-service uni-build",
