@@ -23,6 +23,8 @@ export default {
                 // 最多展示10条
                 if (res?.dataList?.length > 10) {
                     list = res?.dataList.slice(0, 10)
+                } else {
+                    list = res?.dataList || []
                 }
                 this.data = bankChartsMapping(list)
                 this.init()
