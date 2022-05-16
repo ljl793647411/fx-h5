@@ -2,7 +2,7 @@
 <script>
 	export default {
         onLaunch: function() {
-            window._isAuth = true
+            // window._isAuth = true
 		},
 		onShow: function() {
 		},

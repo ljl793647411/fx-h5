@@ -26,6 +26,9 @@ export default {
                 } else {
                     list = res?.dataList || []
                 }
+
+                console.log('res', res, list)
+
                 this.data = bankChartsMapping(list)
                 this.init()
             })
