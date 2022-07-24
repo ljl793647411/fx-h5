@@ -27,6 +27,14 @@ export default {
         contract,
         Top10,
         CreditCategory
+    },
+    onReady() {
+        let routes = getCurrentPages(); // 获取当前打开过的页面路由数组
+        let curParam = routes[routes.length - 1].options; //获取路由参数
+        
+        uni.setNavigationBarTitle({
+            title: curParam.bankName
+        })
     }
 }
 </script>

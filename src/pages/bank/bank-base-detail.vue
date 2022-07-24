@@ -1,8 +1,14 @@
 <template>
 	<view class="bank-detail">
 		<view class="header">
+			<view class="top-bar">
+				<view class="back-class" @click="back">后退</view>
+				<view class="top-bar-title">银行详情</view>
+			</view>
 			<view class="header-top">
-        <!--				<image class="bank-logo" :src="data.iconName" />-->
+				<view class="bank-logo">
+					<image :src="data.iconName" />
+				</view>
 				<!--
           <text class="bank-text ellipsis">{{data.financialName}}</text>-->
 				<text class="bank-text ellipsis">中国银行</text>
@@ -95,6 +101,11 @@
 				type: Object,
 				default: () => ({})
 			}
+		},
+		methods: {
+			back() {
+				uni.navigateBack(1)
+			}
 		}
 	}
 </script>
@@ -102,39 +113,63 @@
 <style lang="scss" scoped>
 	.bank-detail {
 		min-height: 100vh;
-    z-index: -1;
+    	z-index: -1;
 	}
 
 	.header {
-    background-image: linear-gradient(223deg, #4892F8 0%, #3F74F9 44%, #10C1F3 100%);
-    height: 150px;
-    border-radius: 0 0 25% 25%;
+		background-image: linear-gradient(223deg, #4892F8 0%, #3F74F9 44%, #10C1F3 100%);
+		height: 200px;
+		border-radius: 0 0 25% 25%;
+		.top-bar {
+			width: 100%;
+			font-size: 17px;
+			color: #FFFFFF;
+			letter-spacing: 0;
+			text-align: center;
+			font-weight: 500;
+			height: 32px;
+			padding: 16px;
+			box-sizing: border-box;
+			text-align: center;
+			position: relative;
+
+			.back-class {
+				position: absolute;
+				top: 16px;
+				left: 16px;
+			}
+
+		}
+
 		.header-top {
+			padding: 0 16px;
+			margin-top: 28px;
+			display: flex;
+			align-items: flex-start;
 
 			.bank-logo {
 				width: 40px;
 				height: 40px;
-				margin-right: 20px;
+				background: red;
+				margin-right: 10px;
 			}
 			.bank-text {
 				font-size: 17px;
 				color: #FFFFFF;
 				letter-spacing: 0;
 				font-weight: 500;
-				margin-top: 50px;
-				margin-bottom: 50px;
 			}
 		}
 	}
 
 	.content-box {
-    margin-top: -70px;
+    	margin-top: -70px;
 		background: #FFFFFF;
 		box-shadow: 0 2px 8px 0 rgba(81, 120, 159, 0.12);
 		border-radius: 8px;
 		min-height: 100vh;
-    margin-left: 18px;
-    margin-right: 18px;
+		margin-left: 18px;
+		margin-right: 18px;
 
 		.content-top-box {
 			width: 100%;
@@ -162,7 +197,7 @@
 				font-size: 14px;
 				color: #848C9A;
 				font-weight: 400;
-				margin-right: 100px;
+				margin-right: 20px;
 				width: 30%;
 
 			}

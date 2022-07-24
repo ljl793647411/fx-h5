@@ -1,5 +1,5 @@
 <template>
-    <view class="bank-item-box">
+    <view class="bank-item-box" @click="jumpBankDetail">
         <list-item>
             <view class="header-box">
                 <view class="header-left">
@@ -47,6 +47,16 @@ export default {
             type: Object,
             default: () => ({})
         }
+    },
+    methods: {
+        jumpBankDetail() {
+            if (!this.data) {
+                return
+            }
+            uni.navigateTo({
+                url: `/pages/bank-detail/index?bankName=${this.data.financialName}`
+            })
+        },
     }
 }
 </script>

@@ -9,7 +9,7 @@
                     <view class="back-name">{{data.shortName}}</view>
                     <text class="back-tag">{{data.category}}</text>
                 </view>
-                <view class="jump-back-info">
+                <view class="jump-back-info" @click="jump">
                     查看银行架构
                 </view>
             </view>
@@ -84,7 +84,7 @@ const mockData = [{
             iconurl: "te",//图标名称
 			remark: "备注",///备注
             category: '中资 '//中资，外资
-}          
+    }          
 ]
 export default {
     name: "bank-detail",
@@ -97,6 +97,14 @@ export default {
         this.getData()
     },
     methods: {
+        jump() {
+            if (!this.data) {
+                return
+            }
+            uni.navigateTo({
+                url: `/pages/bank/bank-base-detail`
+            })
+        },
         getData() {
             this.data = mockData?.[0]
         }
