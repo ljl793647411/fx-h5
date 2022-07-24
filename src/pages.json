@@ -22,6 +22,18 @@
 			}
         },
 		{
+			"path": "pages/bank/bank-base-detail",
+			"style": {
+				"navigationBarTitleText": "银行详情"
+			}
+		},
+		{
+			"path": "pages/bank/bank-organize",
+			"style": {
+				"navigationBarTitleText": "银行架构"
+			}
+		},
+		{
 			"path": "pages/login/index"
         },
 		{
@@ -56,6 +68,16 @@
 				"iconPath": "static/img/bank.svg",
 				"selectedIconPath": "static/img/bank-select.svg",
 				"text": "银行"
+			},{
+				"pagePath": "pages/bank/bank-base-detail",
+				"iconPath": "static/img/home.svg",
+				"selectedIconPath": "static/img/home-select.svg",
+				"text": "银行详情"
+			}, {
+				"pagePath": "pages/bank/bank-organize",
+				"iconPath": "static/img/home.svg",
+				"selectedIconPath": "static/img/home-select.svg",
+				"text": "银行架构"
 			}
 		]
 	}
