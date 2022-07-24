@@ -1,7 +1,7 @@
 <template>
     <view class="home-chart-container">
         <view class="title-box">
-            <image class="title-img" :src="img" />
+            <image v-if="img" class="title-img" :src="img" />
             <text class="title">{{title}}</text>
         </view>
         <view :class="[chartClass, 'chart']" :style="{height: `${height}px`}" />

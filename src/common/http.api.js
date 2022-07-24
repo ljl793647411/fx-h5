@@ -45,3 +45,13 @@ export const getLoanWeb = (params, config = {
     custom: {auth: 2}
 }) => http.post('/hbct/v1.0/getDataFromOA/getLoanWeb', params, config)
 
+// 2.0之后新增
+// 银行详情页top10条形图数据
+export const getBankTopTenApi = (params, config = {
+    custom: {auth: 2}
+}) => http.post('/fosun/fullcaliber/v1.0/qryCompanyCreditExposureRank', params, config)
+
+// 银行详情页授信品种分摊饼图出局
+export const getCreditCategory = (params, config = {
+    custom: {auth: 2}
+}) => http.post('/fosun/fullcaliber/v1.0/qryCreditExposureAllocationByVariety', params, config)

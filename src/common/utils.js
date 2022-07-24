@@ -8,7 +8,6 @@ const corpIdMap = {
     pro: 'ding7a05491d2e914134',  // 正式环境 
 }
 
-console.log('corpIdMap', corpIdMap[env])
 // 银行数据映射
 export const bankChartsMapping = (list = []) => {
     let obj = {
@@ -112,4 +111,36 @@ export function login() {
             rej('必须在钉钉访问该应用');
         }
     })
+}
+
+// top10企业授信分摊数据映射
+export const bankTopTenMapping = (list = []) => {
+    let obj = {
+        category: [],
+        data: []
+    }
+    list?.forEach(item => {
+        obj.category.unshift(item?.shortName || '-')
+        obj.data.unshift(item?.exposureLimit || 0)
+    });
+
+    obj.unit = '万'
+    return obj
+}
+
+
+// 银行详情授信品种分摊饼图
+export const creditCategoryChartsMapping = (list = []) => {
+    let obj = {
+        dataList: []
+    }
+    obj.dataList = list?.map(item => {
+        return {
+            name: item?.name || '-',
+            value: item?.exposureLimit || 0
+        }
+    })
+
+    // obj.unit = list?.amountUnit || '亿'
+    return obj
 }

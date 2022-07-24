@@ -23,6 +23,9 @@
         },
 		{
 			"path": "pages/login/index"
+        },
+		{
+			"path": "pages/bank-detail/index"
         }
 		
 	],

@@ -164,6 +164,5 @@ const imgSrcMap = {
     pro: 'https://tms.fosun.com/apps/bf/df/web/bankaccounts/banktypes/'
 }
 
-console.log('imgSrcMap', imgSrcMap[env], env)
 // 图片地址请求前缀
 export const imgSrc = imgSrcMap[env]
