@@ -55,3 +55,13 @@ export const getBankTopTenApi = (params, config = {
 export const getCreditCategory = (params, config = {
     custom: {auth: 2}
 }) => http.post('/fosun/fullcaliber/v1.0/qryCreditExposureAllocationByVariety', params, config)
+
+// 银行详情Api
+export const getBankDetail = (params, config = {
+    custom: {auth: 2}
+}) => http.post('/fosunbond/v1.0/getfsun/bank/getbanklist', params, config)
+
+// 银行架构Api
+export const getBankOrganize = (params, config = {
+    custom: {auth: 2}
+}) => http.post('/fosunbond/v1.0/getfsun/bank/getbanklist', params, config)

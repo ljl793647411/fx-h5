@@ -28,6 +28,12 @@
 			}
 		},
 		{
+			"path": "pages/bank/bank-organize",
+			"style": {
+				"navigationBarTitleText": "银行架构"
+			}
+		},
+		{
 			"path": "pages/login/index"
         },
 		{

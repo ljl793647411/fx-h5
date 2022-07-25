@@ -102,7 +102,7 @@ export default {
                 return
             }
             uni.navigateTo({
-                url: `/pages/bank/bank-base-detail`
+                url: `/pages/bank/bank-organize??bankTypeID=`+this.data.bankTypeID+"&dataType="+this.data.dataType+"&dataID="+this.data.dataID
             })
         },
         getData() {
